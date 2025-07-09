@@ -1,7 +1,7 @@
 import StickyHeader from "@/components/StickyHeader";
 import HeroSection from "@/components/HeroSection";
 import StorePresentation from "@/components/StorePresentation";
-import ProductsSection from "@/components/ProductsSection";
+import FeaturedProducts from "@/components/FeaturedProducts";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -10,7 +10,7 @@ const Index = () => {
       <StickyHeader />
       <HeroSection />
       <StorePresentation />
-      <ProductsSection />
+      <FeaturedProducts />
       <Footer />
     </div>
   );

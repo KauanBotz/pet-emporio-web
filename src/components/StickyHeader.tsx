@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Phone, MapPin, Menu, X } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 
 const StickyHeader = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,6 +18,12 @@ const StickyHeader = () => {
   }, []);
 
   const scrollToSection = (sectionId: string) => {
+    // If we're not on the home page, navigate to home first
+    if (location.pathname !== '/') {
+      window.location.href = `/#${sectionId}`;
+      return;
+    }
+    
     const section = document.getElementById(sectionId);
     section?.scrollIntoView({ behavior: 'smooth' });
     setIsMobileMenuOpen(false);
@@ -38,23 +46,23 @@ const StickyHeader = () => {
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div 
+          <Link 
+            to="/"
             className="cursor-pointer"
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           >
             <h1 className="text-xl font-bold text-foreground">
               🐾 Empório das Rações
             </h1>
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <button
-              onClick={() => scrollToSection('produtos')}
+            <Link
+              to="/produtos"
               className="text-foreground hover:text-primary transition-colors"
             >
               Produtos
-            </button>
+            </Link>
             <button
               onClick={() => scrollToSection('sobre-loja')}
               className="text-foreground hover:text-primary transition-colors"
@@ -103,12 +111,13 @@ const StickyHeader = () => {
         {isMobileMenuOpen && (
           <div className="md:hidden mt-4 pb-4 border-t border-border animate-fade-in">
             <nav className="flex flex-col space-y-4 mt-4">
-              <button
-                onClick={() => scrollToSection('produtos')}
+              <Link
+                to="/produtos"
                 className="text-left text-foreground hover:text-primary transition-colors"
+                onClick={() => setIsMobileMenuOpen(false)}
               >
                 Produtos
-              </button>
+              </Link>
               <button
                 onClick={() => scrollToSection('sobre-loja')}
                 className="text-left text-foreground hover:text-primary transition-colors"
