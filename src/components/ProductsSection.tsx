@@ -114,19 +114,19 @@ const ProductsSection = () => {
   });
 
   return (
-    <section id="produtos" className="py-16 px-6 bg-background">
+    <section id="produtos" className="py-12 sm:py-16 px-4 sm:px-6 bg-background">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-12 slide-up">
-          <h2 className="text-4xl font-bold text-foreground mb-4">
+        <div className="text-center mb-8 sm:mb-12 slide-up">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-4 px-2">
             Nossos Produtos
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
+          <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto mb-6 sm:mb-8 px-4">
             Rações de qualidade para seu pet, disponíveis para retirada rápida ou encomenda
           </p>
 
           {/* Filter Buttons */}
-          <div className="flex flex-wrap justify-center gap-2">
+          <div className="flex flex-wrap justify-center gap-2 px-2">
             {[
               { key: "todos", label: "Todos", icon: "🐾" },
               { key: "granel", label: "Granel", icon: "⚖️" },
@@ -144,16 +144,16 @@ const ProductsSection = () => {
                 variant={filter === key ? "default" : "outline"}
                 size="sm"
                 onClick={() => setFilter(key as typeof filter)}
-                className={filter === key ? "pickup-button" : ""}
+                className={`text-xs sm:text-sm ${filter === key ? "pickup-button" : ""}`}
               >
-                {icon} {label}
+                <span className="hidden xs:inline">{icon} </span>{label}
               </Button>
             ))}
           </div>
         </div>
 
         {/* Products Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 fade-in">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 fade-in">
           {filteredProducts.map(product => (
             <ProductCard key={product.id} product={product} />
           ))}

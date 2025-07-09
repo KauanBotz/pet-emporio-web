@@ -4,13 +4,13 @@ import storePhoto from "@/assets/store-photo.jpg";
 
 const StorePresentation = () => {
   return (
-    <section id="sobre-loja" className="py-16 px-6 bg-card">
+    <section id="sobre-loja" className="py-12 sm:py-16 px-4 sm:px-6 bg-card">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-12 slide-up">
-          <h2 className="text-4xl font-bold text-foreground mb-4">
+        <div className="text-center mb-8 sm:mb-12 slide-up">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-4 px-2">
             Conheça o Empório das Rações
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto px-4">
             Especialistas em nutrição animal há anos, sempre com carinho e qualidade
           </p>
         </div>
@@ -19,15 +19,15 @@ const StorePresentation = () => {
           {/* Store Info */}
           <div className="space-y-6 slide-up">
             <div>
-              <h3 className="text-2xl font-bold text-foreground mb-4">
+              <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-4">
                 Quem somos
               </h3>
-              <p className="text-muted-foreground leading-relaxed mb-6">
+              <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mb-6">
                 Somos o <strong>Empório das Rações</strong>, especialistas em nutrição animal. 
                 Localizados em Santa Mônica, BH, oferecemos rações a granel e embaladas 
                 com qualidade e carinho. Retirada rápida ou encomenda simples pelo WhatsApp.
               </p>
-              <p className="text-muted-foreground leading-relaxed">
+              <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                 <strong>Fazemos entregas!</strong> Facilite ainda mais o cuidado com seu pet.
               </p>
             </div>

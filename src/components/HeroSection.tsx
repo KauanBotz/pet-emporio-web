@@ -24,33 +24,33 @@ const HeroSection = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-4xl mx-auto px-6 text-center fade-in">
+      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center fade-in">
         {/* Logo/Brand */}
-        <div className="mb-8">
-          <h1 className="text-5xl md:text-7xl font-bold text-foreground mb-4">
+        <div className="mb-6 sm:mb-8">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-foreground mb-2 sm:mb-4">
             🐾 Empório das Rações
           </h1>
-          <p className="text-xl md:text-2xl text-muted-foreground font-medium">
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground font-medium px-2">
             Tudo para o seu pet com carinho e qualidade
           </p>
         </div>
 
         {/* Main Headline */}
-        <div className="mb-12">
-          <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
+        <div className="mb-8 sm:mb-12">
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-5xl font-bold text-foreground mb-4 sm:mb-6 px-2">
             A Nutrição que Seu Pet Merece
           </h2>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
             Rações premium com retirada rápida na loja ou encomenda no WhatsApp.
             Ração, acessórios, tudo para o seu pet!
           </p>
         </div>
 
         {/* Action Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mb-8 sm:mb-12 px-4">
           <Button 
             size="lg" 
-            className="pickup-button text-lg px-8 py-6"
+            className="pickup-button text-base sm:text-lg px-6 sm:px-8 py-4 sm:py-6 w-full sm:w-auto"
             onClick={scrollToProducts}
           >
             Ver Produtos
@@ -58,7 +58,7 @@ const HeroSection = () => {
           <Button 
             variant="outline" 
             size="lg"
-            className="text-lg px-8 py-6 border-2 border-foreground text-foreground hover:bg-foreground hover:text-background"
+            className="text-base sm:text-lg px-6 sm:px-8 py-4 sm:py-6 border-2 border-foreground text-foreground hover:bg-foreground hover:text-background w-full sm:w-auto"
             onClick={openStoreModal}
           >
             Conheça nossa loja
@@ -66,14 +66,14 @@ const HeroSection = () => {
         </div>
 
         {/* Quick Contact Info */}
-        <div className="flex flex-col sm:flex-row gap-6 justify-center items-center text-muted-foreground">
+        <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center text-muted-foreground text-sm sm:text-base px-4">
           <div className="flex items-center gap-2">
-            <Phone className="w-5 h-5" />
+            <Phone className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
             <span>(31) 98331-9637</span>
           </div>
-          <div className="flex items-center gap-2">
-            <MapPin className="w-5 h-5" />
-            <span>Rua Frei Otto, 525 - Santa Mônica - BH</span>
+          <div className="flex items-center gap-2 text-center">
+            <MapPin className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
+            <span className="break-words">Rua Frei Otto, 525 - Santa Mônica - BH</span>
           </div>
         </div>
       </div>

@@ -23,16 +23,16 @@ const Footer = () => {
   };
 
   return (
-    <footer id="contato" className="bg-card py-16 px-6">
+    <footer id="contato" className="bg-card py-12 sm:py-16 px-4 sm:px-6">
       <div className="max-w-6xl mx-auto">
         {/* Main Footer Content */}
-        <div className="grid md:grid-cols-3 gap-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-6 sm:mb-8">
           {/* Store Info */}
           <div className="text-center md:text-left">
-            <h3 className="text-2xl font-bold text-foreground mb-4">
+            <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-4">
               🐾 Empório das Rações
             </h3>
-            <p className="text-muted-foreground mb-4">
+            <p className="text-sm sm:text-base text-muted-foreground mb-4">
               Tudo para o seu pet com carinho e qualidade. 
               Especialistas em nutrição animal.
             </p>
@@ -119,11 +119,11 @@ const Footer = () => {
         </div>
 
         {/* Map Section */}
-        <div className="mb-8">
-          <h4 className="text-lg font-bold text-foreground mb-4 text-center">
+        <div className="mb-6 sm:mb-8">
+          <h4 className="text-base sm:text-lg font-bold text-foreground mb-4 text-center">
             📍 Como chegar
           </h4>
-          <div className="w-full h-64 rounded-lg overflow-hidden">
+          <div className="w-full h-48 sm:h-64 rounded-lg overflow-hidden">
             <iframe 
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3753.3530790784907!2d-43.98213962477549!3d-19.825007981539937!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa6902afe6f4123%3A0xeb0879d085739675!2sRua%20Frei%20Otto%2C%20525%20-%20Santa%20Monica%2C%20Belo%20Horizonte%20-%20MG%2C%2031525-250!5e0!3m2!1spt-BR!2sbr!4v1752099129710!5m2!1spt-BR!2sbr" 
               width="100%" 
