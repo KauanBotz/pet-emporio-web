@@ -133,7 +133,7 @@ const mockProducts = [
 ];
 
 const ProductsSection = () => {
-  const [filter, setFilter] = useState<"todos" | "granel" | "pacote" | "cachorro" | "gato" | "aves" | "saches" | "potes" | "roupas" | "peixes">("todos");
+  const [filter, setFilter] = useState<"todos" | "granel" | "pacote" | "cachorro" | "gato" | "aves" | "saches" | "potes" | "roupas" | "peixes" | "outros">("todos");
 
   const filteredProducts = mockProducts.filter(product => {
     if (filter === "todos") return true;
@@ -165,7 +165,8 @@ const ProductsSection = () => {
               { key: "saches", label: "Sachês", icon: "🥫" },
               { key: "potes", label: "Potes", icon: "🍽️" },
               { key: "roupas", label: "Roupas", icon: "👕" },
-              { key: "peixes", label: "Peixes", icon: "🐠" }
+              { key: "peixes", label: "Peixes", icon: "🐠" },
+              { key: "outros", label: "Outros", icon: "🌟" }
             ].map(({ key, label, icon }) => (
               <Button
                 key={key}
