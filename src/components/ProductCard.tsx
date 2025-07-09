@@ -27,7 +27,9 @@ const ProductCard = ({ product }: ProductCardProps) => {
 
   const generateWhatsAppLink = () => {
     const phone = "5531983319637";
-    const message = `Olá! Gostaria de encomendar a ração ${product.name} - ${quantity}${product.type === "granel" ? "kg" : " unidade(s)"}.`;
+    const totalPrice = product.price ? (product.price * quantity).toLocaleString('pt-BR', { minimumFractionDigits: 2 }) : null;
+    const priceText = product.type === "granel" && totalPrice ? ` - Total: R$ ${totalPrice}` : "";
+    const message = `Olá! Gostaria de encomendar a ração ${product.name} - ${quantity}${product.type === "granel" ? "kg" : " unidade(s)"}${priceText}.`;
     return `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
   };
 
