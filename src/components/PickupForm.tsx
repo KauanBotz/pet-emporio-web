@@ -83,9 +83,14 @@ const PickupForm = ({ product, quantity, onClose }: PickupFormProps) => {
           {/* Product Summary */}
           <div className="bg-muted p-4 rounded-lg mb-6">
             <h3 className="font-medium text-foreground mb-2">Produto selecionado:</h3>
-            <p className="text-sm text-muted-foreground">
+            <p className="text-sm text-muted-foreground mb-2">
               <strong>{product.name}</strong> - {quantity}{product.type === "granel" ? "kg" : " unidade(s)"}
             </p>
+            {product.price && (
+              <div className="text-lg font-semibold text-primary">
+                Total: R$ {(product.price * quantity).toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
+              </div>
+            )}
           </div>
 
           {/* Form */}
