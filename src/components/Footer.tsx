@@ -18,6 +18,10 @@ const Footer = () => {
     window.open(`https://maps.google.com?q=${encodeURIComponent(address)}`, '_blank');
   };
 
+  const openDirections = () => {
+    window.open(`https://www.google.com/maps/dir/?api=1&destination=Rua+Frei+Otto,+525,+Santa+Mônica,+Belo+Horizonte`, '_blank');
+  };
+
   return (
     <footer id="contato" className="bg-card py-16 px-6">
       <div className="max-w-6xl mx-auto">
@@ -91,6 +95,15 @@ const Footer = () => {
               >
                 <Phone className="w-4 h-4 mr-2" />
                 Falar no WhatsApp
+              </Button>
+              
+              <Button 
+                variant="outline" 
+                className="w-full"
+                onClick={openDirections}
+              >
+                <MapPin className="w-4 h-4 mr-2" />
+                Como Chegar
               </Button>
               
               <Button 

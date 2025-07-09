@@ -27,7 +27,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
 
   const generateWhatsAppLink = () => {
     const phone = "5531983319637";
-    const message = `Olá! Gostaria de encomendar a ração ${product.name} - ${quantity}${product.type === "granel" ? "kg" : " unidade(s)"} para retirada na loja.`;
+    const message = `Olá! Gostaria de encomendar a ração ${product.name} - ${quantity}${product.type === "granel" ? "kg" : " unidade(s)"}.`;
     return `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
   };
 

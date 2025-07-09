@@ -9,7 +9,7 @@ All colors MUST be HSL.
 @layer base {
   :root {
     /* Base colors - Empório das Rações palette */
-    --background: 44 45% 80%; /* #E7D2A7 - fundo base claro */
+    --background: 0 0% 100%; /* Fundo branco */
     --foreground: 21 54% 21%; /* #532D19 - textos principais */
 
     --card: 39 67% 88%; /* #F6E4CC - cards/fundos leves */
