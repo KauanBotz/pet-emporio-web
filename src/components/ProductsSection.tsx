@@ -146,7 +146,7 @@ const ProductsSection = () => {
                 onClick={() => setFilter(key as typeof filter)}
                 className={`text-xs sm:text-sm ${filter === key ? "pickup-button" : ""}`}
               >
-                <span className="hidden xs:inline">{icon} </span>{label}
+                {icon} {label}
               </Button>
             ))}
           </div>

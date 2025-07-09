@@ -29,6 +29,14 @@ const StickyHeader = () => {
     setIsMobileMenuOpen(false);
   };
 
+  const handleProductsClick = () => {
+    setIsMobileMenuOpen(false);
+    // If already on products page, scroll to top
+    if (location.pathname === '/produtos') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
   const openWhatsApp = () => {
     const phone = "5531983319637";
     const message = "Olá! Gostaria de mais informações sobre os produtos.";
@@ -60,6 +68,7 @@ const StickyHeader = () => {
             <Link
               to="/produtos"
               className="text-foreground hover:text-primary transition-colors"
+              onClick={handleProductsClick}
             >
               Produtos
             </Link>
@@ -114,7 +123,7 @@ const StickyHeader = () => {
               <Link
                 to="/produtos"
                 className="text-left text-foreground hover:text-primary transition-colors"
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={handleProductsClick}
               >
                 Produtos
               </Link>
