@@ -84,9 +84,23 @@ const ProductCard = ({ product }: ProductCardProps) => {
             </div>
           )}
           
-          {/* Product Image Placeholder */}
-          <div className="w-full h-40 bg-muted rounded-lg flex items-center justify-center mb-4">
-            <Package className="w-12 h-12 text-muted-foreground" />
+          {/* Product Image */}
+          <div className="w-full h-40 bg-muted rounded-lg overflow-hidden mb-4">
+            {product.image ? (
+              <img 
+                src={product.image} 
+                alt={product.name}
+                className="w-full h-full object-cover"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.style.display = 'none';
+                  target.nextElementSibling?.classList.remove('hidden');
+                }}
+              />
+            ) : null}
+            <div className={`w-full h-full flex items-center justify-center ${product.image ? 'hidden' : ''}`}>
+              <Package className="w-12 h-12 text-muted-foreground" />
+            </div>
           </div>
 
           {product.description && (

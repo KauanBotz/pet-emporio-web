@@ -10,7 +10,8 @@ const featuredProducts = [
     type: "granel" as const,
     category: "cachorro" as const,
     price: 8.50,
-    description: "Ração premium para cães adultos, rica em proteínas e vitaminas"
+    description: "Ração premium para cães adultos, rica em proteínas e vitaminas",
+    image: "https://images.unsplash.com/photo-1605568427561-40dd23c2acea?w=400&h=300&fit=crop"
   },
   {
     id: "2",
@@ -18,7 +19,8 @@ const featuredProducts = [
     type: "pacote" as const,
     category: "gato" as const,
     price: 25.90,
-    description: "Especial para gatos castrados, controla peso e saúde urinária"
+    description: "Especial para gatos castrados, controla peso e saúde urinária",
+    image: "https://images.unsplash.com/photo-1574144611937-0df059b5ef3e?w=400&h=300&fit=crop"
   },
   {
     id: "7",
@@ -26,7 +28,8 @@ const featuredProducts = [
     type: "pacote" as const,
     category: "saches" as const,
     price: 2.50,
-    description: "Sachê saboroso para gatos adultos, vários sabores"
+    description: "Sachê saboroso para gatos adultos, vários sabores",
+    image: "https://images.unsplash.com/photo-1571566882372-1598d88abd90?w=400&h=300&fit=crop"
   },
   {
     id: "9",
@@ -34,7 +37,8 @@ const featuredProducts = [
     type: "pacote" as const,
     category: "potes" as const,
     price: 35.00,
-    description: "Comedouro duplo em aço inox, água e ração"
+    description: "Comedouro duplo em aço inox, água e ração",
+    image: "https://images.unsplash.com/photo-1623387641168-d9803ddd3f35?w=400&h=300&fit=crop"
   },
   {
     id: "11",
@@ -42,7 +46,8 @@ const featuredProducts = [
     type: "pacote" as const,
     category: "roupas" as const,
     price: 18.00,
-    description: "Camiseta confortável para cães, várias estampas"
+    description: "Camiseta confortável para cães, várias estampas",
+    image: "https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=400&h=300&fit=crop"
   },
   {
     id: "6",
@@ -50,7 +55,8 @@ const featuredProducts = [
     type: "granel" as const,
     category: "aves" as const,
     price: 12.80,
-    description: "Mistura nutritiva para aves tropicais e canários"
+    description: "Mistura nutritiva para aves tropicais e canários",
+    image: "https://images.unsplash.com/photo-1552728089-57bdde30beb3?w=400&h=300&fit=crop"
   }
 ];
 
