@@ -22,7 +22,7 @@ const mockProducts = [
     id: "3",
     name: "Ração Filhotes Premium",
     type: "granel" as const,
-    category: "universal" as const,
+    category: "cachorro" as const,
     description: "Nutrição completa para filhotes de cães e gatos"
   },
   {
@@ -41,21 +41,76 @@ const mockProducts = [
   },
   {
     id: "6",
-    name: "Mix Aves e Roedores",
+    name: "Mix Aves Tropical",
     type: "granel" as const,
-    category: "universal" as const,
-    description: "Mistura nutritiva para aves e pequenos roedores"
+    category: "aves" as const,
+    description: "Mistura nutritiva para aves tropicais e canários"
+  },
+  {
+    id: "7",
+    name: "Sachê Whiskas Gato",
+    type: "pacote" as const,
+    category: "saches" as const,
+    description: "Sachê saboroso para gatos adultos, vários sabores"
+  },
+  {
+    id: "8",
+    name: "Sachê Pedigree Cães",
+    type: "pacote" as const,
+    category: "saches" as const,
+    description: "Sachê úmido para cães de todas as idades"
+  },
+  {
+    id: "9",
+    name: "Comedouro Inox Duplo",
+    type: "pacote" as const,
+    category: "potes" as const,
+    description: "Comedouro duplo em aço inox, água e ração"
+  },
+  {
+    id: "10",
+    name: "Bebedouro Automático",
+    type: "pacote" as const,
+    category: "potes" as const,
+    description: "Bebedouro automático com reservatório de 2L"
+  },
+  {
+    id: "11",
+    name: "Camiseta Pet Estampada",
+    type: "pacote" as const,
+    category: "roupas" as const,
+    description: "Camiseta confortável para cães, várias estampas"
+  },
+  {
+    id: "12",
+    name: "Casaco de Inverno Pet",
+    type: "pacote" as const,
+    category: "roupas" as const,
+    description: "Casaco quentinho para cães pequenos e médios"
+  },
+  {
+    id: "13",
+    name: "Ração para Peixes Tropicais",
+    type: "pacote" as const,
+    category: "peixes" as const,
+    description: "Alimento completo para peixes de aquário"
+  },
+  {
+    id: "14",
+    name: "Ração Dourada para Peixes",
+    type: "granel" as const,
+    category: "peixes" as const,
+    description: "Ração premium para peixes ornamentais"
   }
 ];
 
 const ProductsSection = () => {
-  const [filter, setFilter] = useState<"todos" | "granel" | "pacote" | "cachorro" | "gato">("todos");
+  const [filter, setFilter] = useState<"todos" | "granel" | "pacote" | "cachorro" | "gato" | "aves" | "saches" | "potes" | "roupas" | "peixes">("todos");
 
   const filteredProducts = mockProducts.filter(product => {
     if (filter === "todos") return true;
     if (filter === "granel" || filter === "pacote") return product.type === filter;
-    if (filter === "cachorro" || filter === "gato") return product.category === filter;
-    return true;
+    return product.category === filter;
   });
 
   return (
@@ -77,7 +132,12 @@ const ProductsSection = () => {
               { key: "granel", label: "Granel", icon: "⚖️" },
               { key: "pacote", label: "Pacote", icon: "📦" },
               { key: "cachorro", label: "Cães", icon: "🐕" },
-              { key: "gato", label: "Gatos", icon: "🐱" }
+              { key: "gato", label: "Gatos", icon: "🐱" },
+              { key: "aves", label: "Aves", icon: "🐦" },
+              { key: "saches", label: "Sachês", icon: "🥫" },
+              { key: "potes", label: "Potes", icon: "🍽️" },
+              { key: "roupas", label: "Roupas", icon: "👕" },
+              { key: "peixes", label: "Peixes", icon: "🐠" }
             ].map(({ key, label, icon }) => (
               <Button
                 key={key}

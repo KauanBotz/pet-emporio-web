@@ -11,7 +11,7 @@ interface Product {
   id: string;
   name: string;
   type: "granel" | "pacote";
-  category: "cachorro" | "gato" | "universal";
+  category: "cachorro" | "gato" | "aves" | "saches" | "potes" | "roupas" | "peixes";
   price?: number;
   description?: string;
   image?: string;
@@ -60,7 +60,12 @@ const ProductCard = ({ product }: ProductCardProps) => {
               </Badge>
               <Badge variant="outline" className="text-xs">
                 {product.category === "cachorro" ? "🐕" : 
-                 product.category === "gato" ? "🐱" : "🐾"}
+                 product.category === "gato" ? "🐱" : 
+                 product.category === "aves" ? "🐦" :
+                 product.category === "saches" ? "🥫" :
+                 product.category === "potes" ? "🍽️" :
+                 product.category === "roupas" ? "👕" :
+                 product.category === "peixes" ? "🐠" : "🐾"}
               </Badge>
             </div>
           </div>

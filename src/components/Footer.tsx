@@ -110,15 +110,17 @@ const Footer = () => {
           <h4 className="text-lg font-bold text-foreground mb-4 text-center">
             📍 Como chegar
           </h4>
-          <div className="w-full h-64 bg-muted rounded-lg flex items-center justify-center">
-            <Button 
-              variant="outline"
-              onClick={openMaps}
-              className="text-muted-foreground hover:text-foreground"
-            >
-              <MapPin className="w-4 h-4 mr-2" />
-              Abrir no Google Maps
-            </Button>
+          <div className="w-full h-64 rounded-lg overflow-hidden">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3753.3530790784907!2d-43.98213962477549!3d-19.825007981539937!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa6902afe6f4123%3A0xeb0879d085739675!2sRua%20Frei%20Otto%2C%20525%20-%20Santa%20Monica%2C%20Belo%20Horizonte%20-%20MG%2C%2031525-250!5e0!3m2!1spt-BR!2sbr!4v1752099129710!5m2!1spt-BR!2sbr" 
+              width="100%" 
+              height="100%" 
+              style={{border:0}} 
+              allowFullScreen 
+              loading="lazy" 
+              referrerPolicy="no-referrer-when-downgrade"
+              className="rounded-lg"
+            />
           </div>
         </div>
 

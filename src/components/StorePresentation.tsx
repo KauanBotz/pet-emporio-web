@@ -15,16 +15,7 @@ const StorePresentation = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          {/* Store Image */}
-          <div className="fade-in">
-            <img 
-              src={storePhoto}
-              alt="Fachada do Empório das Rações"
-              className="w-full h-80 object-cover rounded-lg shadow-lg"
-            />
-          </div>
-
+        <div className="max-w-4xl mx-auto">
           {/* Store Info */}
           <div className="space-y-6 slide-up">
             <div>
