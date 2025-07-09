@@ -69,6 +69,18 @@ const ProductCard = ({ product }: ProductCardProps) => {
               </Badge>
             </div>
           </div>
+
+          {/* Price Display */}
+          {product.price && (
+            <div className="mb-3">
+              <div className="text-2xl font-bold text-primary">
+                R$ {product.price.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
+                <span className="text-sm font-normal text-muted-foreground ml-1">
+                  {product.type === "granel" ? "/kg" : "/un"}
+                </span>
+              </div>
+            </div>
+          )}
           
           {/* Product Image Placeholder */}
           <div className="w-full h-40 bg-muted rounded-lg flex items-center justify-center mb-4">
@@ -113,6 +125,15 @@ const ProductCard = ({ product }: ProductCardProps) => {
                 <Plus className="w-4 h-4" />
               </Button>
             </div>
+            
+            {/* Total Price */}
+            {product.price && (
+              <div className="text-center pt-2">
+                <span className="text-lg font-semibold text-primary">
+                  Total: R$ {(product.price * quantity).toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
+                </span>
+              </div>
+            )}
           </div>
 
           {/* Action Buttons */}

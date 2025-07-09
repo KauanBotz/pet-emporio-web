@@ -9,6 +9,7 @@ const mockProducts = [
     name: "Ração Premium Cães Adultos",
     type: "granel" as const,
     category: "cachorro" as const,
+    price: 8.50,
     description: "Ração premium para cães adultos, rica em proteínas e vitaminas"
   },
   {
@@ -16,6 +17,7 @@ const mockProducts = [
     name: "Ração Gatos Castrados",
     type: "pacote" as const,
     category: "gato" as const,
+    price: 45.99,
     description: "Especial para gatos castrados, controla peso e saúde urinária"
   },
   {
@@ -23,6 +25,7 @@ const mockProducts = [
     name: "Ração Filhotes Premium",
     type: "granel" as const,
     category: "cachorro" as const,
+    price: 9.80,
     description: "Nutrição completa para filhotes de cães e gatos"
   },
   {
@@ -30,6 +33,7 @@ const mockProducts = [
     name: "Ração Golden Formula",
     type: "pacote" as const,
     category: "cachorro" as const,
+    price: 89.90,
     description: "Fórmula especial Golden para cães exigentes"
   },
   {
@@ -37,6 +41,7 @@ const mockProducts = [
     name: "Ração Royal Canin",
     type: "pacote" as const,
     category: "gato" as const,
+    price: 125.00,
     description: "Royal Canin premium para gatos de todas as idades"
   },
   {
@@ -44,6 +49,7 @@ const mockProducts = [
     name: "Mix Aves Tropical",
     type: "granel" as const,
     category: "aves" as const,
+    price: 6.20,
     description: "Mistura nutritiva para aves tropicais e canários"
   },
   {
@@ -51,6 +57,7 @@ const mockProducts = [
     name: "Sachê Whiskas Gato",
     type: "pacote" as const,
     category: "saches" as const,
+    price: 2.50,
     description: "Sachê saboroso para gatos adultos, vários sabores"
   },
   {
@@ -58,6 +65,7 @@ const mockProducts = [
     name: "Sachê Pedigree Cães",
     type: "pacote" as const,
     category: "saches" as const,
+    price: 2.80,
     description: "Sachê úmido para cães de todas as idades"
   },
   {
@@ -65,6 +73,7 @@ const mockProducts = [
     name: "Comedouro Inox Duplo",
     type: "pacote" as const,
     category: "potes" as const,
+    price: 35.90,
     description: "Comedouro duplo em aço inox, água e ração"
   },
   {
@@ -72,6 +81,7 @@ const mockProducts = [
     name: "Bebedouro Automático",
     type: "pacote" as const,
     category: "potes" as const,
+    price: 78.50,
     description: "Bebedouro automático com reservatório de 2L"
   },
   {
@@ -79,6 +89,7 @@ const mockProducts = [
     name: "Camiseta Pet Estampada",
     type: "pacote" as const,
     category: "roupas" as const,
+    price: 25.90,
     description: "Camiseta confortável para cães, várias estampas"
   },
   {
@@ -86,6 +97,7 @@ const mockProducts = [
     name: "Casaco de Inverno Pet",
     type: "pacote" as const,
     category: "roupas" as const,
+    price: 42.00,
     description: "Casaco quentinho para cães pequenos e médios"
   },
   {
@@ -93,6 +105,7 @@ const mockProducts = [
     name: "Ração para Peixes Tropicais",
     type: "pacote" as const,
     category: "peixes" as const,
+    price: 18.70,
     description: "Alimento completo para peixes de aquário"
   },
   {
@@ -100,6 +113,7 @@ const mockProducts = [
     name: "Ração Dourada para Peixes",
     type: "granel" as const,
     category: "peixes" as const,
+    price: 12.30,
     description: "Ração premium para peixes ornamentais"
   }
 ];
