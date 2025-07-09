@@ -148,7 +148,7 @@ const PickupForm = ({ product, quantity, onClose }: PickupFormProps) => {
                 max="18:00"
               />
               <p className="text-xs text-muted-foreground">
-                Horário de funcionamento: 8h às 18h
+                Horário de funcionamento: 7h às 19h
               </p>
             </div>
 

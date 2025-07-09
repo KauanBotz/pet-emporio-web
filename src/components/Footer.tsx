@@ -9,9 +9,10 @@ const Footer = () => {
     window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
   };
 
-  const openInstagram = () => {
-    window.open('https://instagram.com/emporiodasracoesbhz', '_blank');
-  };
+const openInstagram = () => {
+  const win = window.open('https://instagram.com/emporiodasracoesbhz', '_blank');
+  if (win) win.focus();
+};
 
   const openMaps = () => {
     const address = "Rua Frei Otto, 525 - Santa Mônica, Belo Horizonte - MG";
@@ -30,7 +31,7 @@ const Footer = () => {
           {/* Store Info */}
           <div className="text-center md:text-left">
             <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-4">
-              🐾 Empório das Rações
+             Empório das Rações
             </h3>
             <p className="text-sm sm:text-base text-muted-foreground mb-4">
               Tudo para o seu pet com carinho e qualidade. 
@@ -81,7 +82,7 @@ const Footer = () => {
                     <p className="font-medium text-foreground">Horário</p>
                     <p className="text-sm text-muted-foreground">
                       Segunda a Sábado<br />
-                      8h às 18h
+                      7h às 19h
                     </p>
                   </div>
                 </div>
@@ -121,7 +122,6 @@ const Footer = () => {
         {/* Map Section */}
         <div className="mb-6 sm:mb-8">
           <h4 className="text-base sm:text-lg font-bold text-foreground mb-4 text-center">
-            📍 Como chegar
           </h4>
           <div className="w-full h-48 sm:h-64 rounded-lg overflow-hidden">
             <iframe 
@@ -140,10 +140,10 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-border pt-6 text-center">
           <p className="text-sm text-muted-foreground flex items-center justify-center gap-2">
-            Feito com <Heart className="w-4 h-4 text-red-500" /> para os pets de BH
+            Feito com <Heart className="w-4 h-4 text-red-500" /> para os pets de Belo Horizonte e Região Metropolitana.
           </p>
           <p className="text-xs text-muted-foreground mt-2">
-            © 2024 Empório das Rações - Todos os direitos reservados
+            © 2025 Empório das Rações - Todos os direitos reservados
           </p>
         </div>
       </div>
