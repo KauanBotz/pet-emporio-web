@@ -28,11 +28,8 @@ const HeroSection = () => {
         {/* Logo/Brand */}
         <div className="mb-6 sm:mb-8">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-foreground mb-2 sm:mb-4">
-            🐾 Empório das Rações
+            Empório das Rações
           </h1>
-          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground font-medium px-2">
-            Tudo para o seu pet com carinho e qualidade
-          </p>
         </div>
 
         {/* Main Headline */}

@@ -76,7 +76,7 @@ const StorePresentation = () => {
                     <Clock className="w-5 h-5 text-primary" />
                     <div>
                       <p className="font-medium text-foreground">Horário</p>
-                      <p className="text-muted-foreground">Segunda a Sábado - 8h às 18h</p>
+                      <p className="text-muted-foreground">Segunda a Sábado - 7h às 19h</p>
                     </div>
                   </div>
                 </CardContent>

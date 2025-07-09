@@ -59,7 +59,7 @@ const StickyHeader = () => {
             className="cursor-pointer"
           >
             <h1 className="text-xl font-bold text-foreground">
-              🐾 Empório das Rações
+              Empório das Rações
             </h1>
           </Link>
 
