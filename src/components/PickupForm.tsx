@@ -41,7 +41,7 @@ const PickupForm = ({ product, quantity, onClose }: PickupFormProps) => {
 
     // Generate WhatsApp confirmation message
     const phone = "5531983319637";
-    const message = `Olá! Confirmo a retirada do ${product.name} - ${quantity}${product.type === "granel" ? "kg" : " unidade(s)"}, para o dia ${new Date(formData.date).toLocaleDateString('pt-BR')} às ${formData.time}.`;
+    const message = `Olá! Sou ${formData.name} e confirmo a retirada do ${product.name} - ${quantity}${product.type === "granel" ? "kg" : " unidade(s)"}, para o dia ${new Date(formData.date).toLocaleDateString('pt-BR')} às ${formData.time}.`;
     const whatsappUrl = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
 
     toast({
