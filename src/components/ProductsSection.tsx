@@ -1,5 +1,9 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Label } from "@/components/ui/label";
+import { Search, SlidersHorizontal } from "lucide-react";
 import ProductCard from "./ProductCard";
 
 // Mock data - replace with real product data
@@ -134,11 +138,37 @@ const mockProducts = [
 
 const ProductsSection = () => {
   const [filter, setFilter] = useState<"todos" | "granel" | "pacote" | "cachorro" | "gato" | "aves" | "saches" | "potes" | "roupas" | "peixes" | "outros">("todos");
+  const [searchTerm, setSearchTerm] = useState("");
+  const [minPrice, setMinPrice] = useState("");
+  const [maxPrice, setMaxPrice] = useState("");
+  const [sortBy, setSortBy] = useState<"name" | "price-asc" | "price-desc">("name");
+  const [showFilters, setShowFilters] = useState(false);
 
   const filteredProducts = mockProducts.filter(product => {
+    // Text search
+    if (searchTerm && !product.name.toLowerCase().includes(searchTerm.toLowerCase()) && 
+        !product.description.toLowerCase().includes(searchTerm.toLowerCase())) {
+      return false;
+    }
+
+    // Price range filter
+    if (minPrice && product.price < parseFloat(minPrice)) return false;
+    if (maxPrice && product.price > parseFloat(maxPrice)) return false;
+
+    // Category filter
     if (filter === "todos") return true;
     if (filter === "granel" || filter === "pacote") return product.type === filter;
     return product.category === filter;
+  }).sort((a, b) => {
+    switch (sortBy) {
+      case "price-asc":
+        return a.price - b.price;
+      case "price-desc":
+        return b.price - a.price;
+      case "name":
+      default:
+        return a.name.localeCompare(b.name);
+    }
   });
 
   return (
@@ -152,8 +182,97 @@ const ProductsSection = () => {
           <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto mb-6 sm:mb-8 px-4">
             Rações de qualidade para seu pet, disponíveis para retirada rápida ou encomenda
           </p>
+        </div>
 
-          {/* Filter Buttons */}
+        {/* Advanced Search */}
+        <div className="mb-8 slide-up">
+          {/* Search Bar */}
+          <div className="max-w-2xl mx-auto mb-6">
+            <div className="relative">
+              <Search className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+              <Input
+                placeholder="Buscar produtos..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="pl-10 h-12 text-base"
+              />
+            </div>
+          </div>
+
+          {/* Filters Toggle */}
+          <div className="text-center mb-6">
+            <Button
+              variant="outline"
+              onClick={() => setShowFilters(!showFilters)}
+              className="gap-2"
+            >
+              <SlidersHorizontal className="h-4 w-4" />
+              Filtros Avançados
+            </Button>
+          </div>
+
+          {/* Advanced Filters */}
+          {showFilters && (
+            <div className="bg-muted/50 rounded-lg p-4 sm:p-6 mb-6 space-y-4">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                {/* Price Range */}
+                <div className="space-y-2">
+                  <Label>Faixa de Preço</Label>
+                  <div className="flex gap-2">
+                    <Input
+                      placeholder="Min"
+                      type="number"
+                      value={minPrice}
+                      onChange={(e) => setMinPrice(e.target.value)}
+                      className="text-sm"
+                    />
+                    <Input
+                      placeholder="Max"
+                      type="number"
+                      value={maxPrice}
+                      onChange={(e) => setMaxPrice(e.target.value)}
+                      className="text-sm"
+                    />
+                  </div>
+                </div>
+
+                {/* Sort By */}
+                <div className="space-y-2">
+                  <Label>Ordenar por</Label>
+                  <Select value={sortBy} onValueChange={(value: "name" | "price-asc" | "price-desc") => setSortBy(value)}>
+                    <SelectTrigger>
+                      <SelectValue placeholder="Selecione..." />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="name">Nome (A-Z)</SelectItem>
+                      <SelectItem value="price-asc">Preço (Menor para Maior)</SelectItem>
+                      <SelectItem value="price-desc">Preço (Maior para Menor)</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+
+                {/* Clear Filters */}
+                <div className="space-y-2">
+                  <Label className="invisible">Limpar</Label>
+                  <Button
+                    variant="outline"
+                    onClick={() => {
+                      setSearchTerm("");
+                      setMinPrice("");
+                      setMaxPrice("");
+                      setSortBy("name");
+                      setFilter("todos");
+                    }}
+                    className="w-full"
+                  >
+                    Limpar Filtros
+                  </Button>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Category Filter Buttons */}
           <div className="flex flex-wrap justify-center gap-2 px-2">
             {[
               { key: "todos", label: "Todos", icon: "🐾" },
