@@ -39,10 +39,18 @@ const PickupForm = ({ product, quantity, onClose }: PickupFormProps) => {
     // Simulate API call - replace with actual backend integration
     await new Promise(resolve => setTimeout(resolve, 1000));
 
+    // Generate WhatsApp confirmation message
+    const phone = "5531983319637";
+    const message = `Olá! Confirmo a retirada do ${product.name} - ${quantity}${product.type === "granel" ? "kg" : " unidade(s)"}, para o dia ${new Date(formData.date).toLocaleDateString('pt-BR')} às ${formData.time}.`;
+    const whatsappUrl = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+
     toast({
       title: "Pedido confirmado! 🎉",
       description: `Seu pedido de ${product.name} foi anotado. Te esperamos no horário combinado!`,
     });
+
+    // Open WhatsApp confirmation
+    window.open(whatsappUrl, '_blank');
 
     setIsSubmitting(false);
     onClose();
