@@ -54,30 +54,18 @@ const ProductCard = ({ product }: ProductCardProps) => {
             <div className="flex gap-2">
               <Badge 
                 variant={product.type === "granel" ? "default" : "secondary"}
-                className="text-xs flex flex-col items-center py-2 px-3"
+                className="text-xs"
               >
-                <span className="text-sm mb-1">⚖️</span>
-                <span>{product.type === "granel" ? "Granel" : "Pacote"}</span>
+                {product.type === "granel" ? "Granel" : "Pacote"}
               </Badge>
-              <Badge variant="outline" className="text-xs flex flex-col items-center py-2 px-3">
-                <span className="text-sm mb-1">
-                  {product.category === "cachorro" ? "🐕" : 
-                   product.category === "gato" ? "🐱" : 
-                   product.category === "aves" ? "🐦" :
-                   product.category === "saches" ? "🥫" :
-                   product.category === "potes" ? "🍽️" :
-                   product.category === "roupas" ? "👕" :
-                   product.category === "peixes" ? "🐠" : "🐾"}
-                </span>
-                <span>
-                  {product.category === "cachorro" ? "Cães" : 
-                   product.category === "gato" ? "Gatos" : 
-                   product.category === "aves" ? "Aves" :
-                   product.category === "saches" ? "Sachês" :
-                   product.category === "potes" ? "Potes" :
-                   product.category === "roupas" ? "Roupas" :
-                   product.category === "peixes" ? "Peixes" : "Pet"}
-                </span>
+              <Badge variant="outline" className="text-xs">
+                {product.category === "cachorro" ? "🐕" : 
+                 product.category === "gato" ? "🐱" : 
+                 product.category === "aves" ? "🐦" :
+                 product.category === "saches" ? "🥫" :
+                 product.category === "potes" ? "🍽️" :
+                 product.category === "roupas" ? "👕" :
+                 product.category === "peixes" ? "🐠" : "🐾"}
               </Badge>
             </div>
           </div>
