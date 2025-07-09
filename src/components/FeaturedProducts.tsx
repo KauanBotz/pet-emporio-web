@@ -9,6 +9,7 @@ const featuredProducts = [
     name: "Ração Premium Cães Adultos",
     type: "granel" as const,
     category: "cachorro" as const,
+    price: 8.50,
     description: "Ração premium para cães adultos, rica em proteínas e vitaminas"
   },
   {
@@ -16,6 +17,7 @@ const featuredProducts = [
     name: "Ração Gatos Castrados",
     type: "pacote" as const,
     category: "gato" as const,
+    price: 25.90,
     description: "Especial para gatos castrados, controla peso e saúde urinária"
   },
   {
@@ -23,6 +25,7 @@ const featuredProducts = [
     name: "Sachê Whiskas Gato",
     type: "pacote" as const,
     category: "saches" as const,
+    price: 2.50,
     description: "Sachê saboroso para gatos adultos, vários sabores"
   },
   {
@@ -30,6 +33,7 @@ const featuredProducts = [
     name: "Comedouro Inox Duplo",
     type: "pacote" as const,
     category: "potes" as const,
+    price: 35.00,
     description: "Comedouro duplo em aço inox, água e ração"
   },
   {
@@ -37,6 +41,7 @@ const featuredProducts = [
     name: "Camiseta Pet Estampada",
     type: "pacote" as const,
     category: "roupas" as const,
+    price: 18.00,
     description: "Camiseta confortável para cães, várias estampas"
   },
   {
@@ -44,6 +49,7 @@ const featuredProducts = [
     name: "Mix Aves Tropical",
     type: "granel" as const,
     category: "aves" as const,
+    price: 12.80,
     description: "Mistura nutritiva para aves tropicais e canários"
   }
 ];
