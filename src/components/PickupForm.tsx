@@ -203,21 +203,6 @@ const PickupForm = ({ product, quantity, cartItems, onClose }: PickupFormProps) 
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="phone" className="flex items-center gap-2">
-                <Phone className="w-4 h-4" />
-                Telefone
-              </Label>
-              <Input
-                id="phone"
-                type="tel"
-                value={formData.phone}
-                onChange={(e) => handleInputChange("phone", e.target.value)}
-                required
-                placeholder="(31) 99999-9999"
-              />
-            </div>
-
-            <div className="space-y-2">
               <Label htmlFor="date" className="flex items-center gap-2">
                 <Calendar className="w-4 h-4" />
                 Dia da retirada

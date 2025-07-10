@@ -160,15 +160,8 @@ const ProductCard = ({ product }: ProductCardProps) => {
 
           {/* Action Buttons */}
           <div className="space-y-2">
-            <Button 
-              className="w-full pickup-button"
-              onClick={handlePickupClick}
-            >
-              <Store className="w-4 h-4 mr-2" />
-              Retirar na loja
-            </Button>
-
-            <Button 
+            
+              <Button 
               variant="outline"
               className="w-full"
               onClick={handleAddToCart}
@@ -177,6 +170,15 @@ const ProductCard = ({ product }: ProductCardProps) => {
               Adicionar ao carrinho
             </Button>
             
+
+            <Button 
+              className="w-full pickup-button"
+              onClick={handlePickupClick}
+            >
+              <Store className="w-4 h-4 mr-2" />
+              Retirar na loja
+            </Button>
+
             <Button 
               variant="outline"
               className="w-full whatsapp-button border-green-500 text-green-600 hover:text-white"
