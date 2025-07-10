@@ -186,29 +186,27 @@ const ProductsSection = () => {
 
         {/* Advanced Search */}
         <div className="mb-8 slide-up">
-          {/* Search Bar */}
-          <div className="flex justify-end mb-6">
-            <div className="relative w-full max-w-md">
-              <Search className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
-              <Input
-                placeholder="Buscar produtos..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="pl-10 h-12 text-base bg-primary/10 border-primary/20 focus-visible:border-primary"
-              />
+          {/* Search Bar and Filters */}
+          <div className="max-w-3xl mx-auto mb-6">
+            <div className="flex gap-4 items-start">
+              <div className="relative flex-1">
+                <Search className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+                <Input
+                  placeholder="Buscar produtos..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="pl-10 h-12 text-base bg-primary/10 border-primary/20 focus-visible:border-primary"
+                />
+              </div>
+              <Button
+                variant="outline"
+                onClick={() => setShowFilters(!showFilters)}
+                className="gap-2 h-12 flex-shrink-0"
+              >
+                <SlidersHorizontal className="h-4 w-4" />
+                Filtros Avançados
+              </Button>
             </div>
-          </div>
-
-          {/* Filters Toggle */}
-          <div className="flex justify-end mb-6">
-            <Button
-              variant="outline"
-              onClick={() => setShowFilters(!showFilters)}
-              className="gap-2"
-            >
-              <SlidersHorizontal className="h-4 w-4" />
-              Filtros Avançados
-            </Button>
           </div>
 
           {/* Advanced Filters */}
