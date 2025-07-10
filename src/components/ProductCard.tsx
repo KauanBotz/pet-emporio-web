@@ -85,12 +85,12 @@ const ProductCard = ({ product }: ProductCardProps) => {
           </div>
           
           {/* Product Image */}
-          <div className="w-full h-48 bg-muted rounded-lg overflow-hidden mb-4 flex-shrink-0">
+          <div className="w-full h-52 bg-muted rounded-lg overflow-hidden mb-4 flex-shrink-0 flex items-center justify-center">
             {product.image ? (
               <img 
                 src={product.image} 
                 alt={product.name}
-                className="w-full h-full object-cover object-center"
+                className="w-full h-full object-contain"
                 onError={(e) => {
                   const target = e.target as HTMLImageElement;
                   target.style.display = 'none';
