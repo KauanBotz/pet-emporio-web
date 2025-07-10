@@ -29,6 +29,8 @@ interface PickupFormProps {
 }
 
 const PickupForm = ({ product, quantity, cartItems, onClose }: PickupFormProps) => {
+  console.log("PickupForm aberto:", { product, quantity, cartItems });
+  
   const [formData, setFormData] = useState({
     name: "",
     phone: "",

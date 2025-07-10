@@ -47,6 +47,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
   };
 
   const handlePickupClick = () => {
+    console.log("ProductCard: Clicou em Retirar na loja");
     setShowPickupForm(true);
   };
 

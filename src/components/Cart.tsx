@@ -186,7 +186,10 @@ const Cart = ({ isOpen, onClose }: CartProps) => {
             <div className="space-y-3">
               <Button 
                 className="w-full pickup-button"
-                onClick={() => setShowPickupForm(true)}
+                onClick={() => {
+                  console.log("Cart: Clicou em Retirar na loja");
+                  setShowPickupForm(true);
+                }}
               >
                 <Store className="w-4 h-4 mr-2" />
                 Retirar na loja
