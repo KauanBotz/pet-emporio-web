@@ -249,7 +249,7 @@ const PickupForm = ({ product, quantity, cartItems, onClose }: PickupFormProps) 
             </Button>
           </form>
 
-          <div className="bg-card border border-border rounded-lg p-3 mt-4">
+          <div className="bg-background border border-border rounded-lg p-3 mt-4">
             <p className="text-sm font-medium text-foreground mb-1">
               📱 Como finalizar seu agendamento:
             </p>
