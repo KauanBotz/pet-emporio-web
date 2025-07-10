@@ -45,11 +45,11 @@ const HeroSection = () => {
         </div>
 
         {/* Action Buttons */}
-        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mb-8 sm:mb-12 px-4">
+        <div className="flex flex-row gap-2 sm:gap-4 justify-center items-center mb-8 sm:mb-12 px-4">
           <Link to="/produtos">
             <Button 
               size="lg" 
-              className="pickup-button text-base sm:text-lg px-6 sm:px-8 py-4 sm:py-6 w-full sm:w-auto"
+              className="pickup-button text-sm sm:text-lg px-4 sm:px-8 py-3 sm:py-6 w-full sm:w-auto"
             >
               Ver Produtos
             </Button>
@@ -57,7 +57,7 @@ const HeroSection = () => {
           <Button 
             variant="outline" 
             size="lg"
-            className="text-base sm:text-lg px-6 sm:px-8 py-4 sm:py-6 border-2 border-foreground text-foreground hover:bg-foreground hover:text-background w-full sm:w-auto"
+            className="text-sm sm:text-lg px-4 sm:px-8 py-3 sm:py-6 border-2 border-foreground text-foreground hover:bg-foreground hover:text-background w-full sm:w-auto"
             onClick={openStoreModal}
           >
             Conheça nossa loja
