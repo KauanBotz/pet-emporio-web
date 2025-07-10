@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { X, Calendar, Clock, User, Phone } from "lucide-react";
+import { X, Calendar, Clock, User, Phone, Minus, Plus } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 interface Product {
@@ -22,17 +22,27 @@ interface CartItem {
 }
 
 interface PickupFormProps {
-  cartItems: CartItem[];
+  product?: Product;
+  quantity?: number;
+  cartItems?: CartItem[];
   onClose: () => void;
 }
 
-const PickupForm = ({ cartItems, onClose }: PickupFormProps) => {
+const PickupForm = ({ product, quantity, cartItems, onClose }: PickupFormProps) => {
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
     date: "",
     time: ""
   });
+  
+  // For single product pickup, create local state
+  const [localItems, setLocalItems] = useState<CartItem[]>(() => {
+    if (cartItems) return cartItems;
+    if (product && quantity) return [{ product, quantity }];
+    return [];
+  });
+  
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
@@ -49,7 +59,7 @@ const PickupForm = ({ cartItems, onClose }: PickupFormProps) => {
     let message = `Olá! Sou ${formData.name} e confirmo a retirada dos seguintes produtos para o dia ${new Date(formData.date).toLocaleDateString('pt-BR')} às ${formData.time}:\n\n`;
     
     let totalPrice = 0;
-    cartItems.forEach((item, index) => {
+    localItems.forEach((item, index) => {
       const itemTotal = item.product.price ? item.product.price * item.quantity : 0;
       totalPrice += itemTotal;
       const unit = item.product.type === "granel" ? "kg" : "un";
@@ -68,7 +78,7 @@ const PickupForm = ({ cartItems, onClose }: PickupFormProps) => {
 
     toast({
       title: "Pedido confirmado! 🎉",
-      description: `Seus ${cartItems.length} produto(s) foram agendados para retirada!`,
+      description: `Seus ${localItems.length} produto(s) foram agendados para retirada!`,
     });
 
     // Open WhatsApp confirmation
@@ -76,6 +86,17 @@ const PickupForm = ({ cartItems, onClose }: PickupFormProps) => {
 
     setIsSubmitting(false);
     onClose();
+  };
+
+  const updateLocalQuantity = (productId: string, newQuantity: number) => {
+    if (newQuantity <= 0) return;
+    setLocalItems(prev => 
+      prev.map(item => 
+        item.product.id === productId 
+          ? { ...item, quantity: newQuantity }
+          : item
+      )
+    );
   };
 
   const handleInputChange = (field: string, value: string) => {
@@ -101,28 +122,62 @@ const PickupForm = ({ cartItems, onClose }: PickupFormProps) => {
 
         <CardContent>
           {/* Cart Summary */}
-          <div className="bg-muted p-4 rounded-lg mb-6 max-h-40 overflow-y-auto">
+          <div className="bg-muted p-4 rounded-lg mb-6 max-h-60 overflow-y-auto">
             <h3 className="font-medium text-foreground mb-3">Produtos para retirada:</h3>
-            {cartItems.map((item, index) => (
-              <div key={item.product.id} className="mb-2 text-sm">
-                <div className="flex justify-between items-start">
+            {localItems.map((item, index) => (
+              <div key={item.product.id} className="mb-4 pb-4 border-b border-border last:border-b-0">
+                <div className="flex justify-between items-start mb-2">
                   <span className="font-medium">{item.product.name}</span>
-                  <span className="text-muted-foreground">
-                    {item.quantity}{item.product.type === "granel" ? "kg" : "un"}
+                  {item.product.price && (
+                    <span className="text-sm text-muted-foreground">
+                      R$ {item.product.price.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
+                      /{item.product.type === "granel" ? "kg" : "un"}
+                    </span>
+                  )}
+                </div>
+                
+                {/* Quantity Controls */}
+                <div className="flex items-center gap-2 mb-2">
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => updateLocalQuantity(item.product.id, item.quantity - 1)}
+                    className="h-7 w-7 p-0"
+                  >
+                    <Minus className="w-3 h-3" />
+                  </Button>
+                  <Input
+                    type="number"
+                    value={item.quantity}
+                    onChange={(e) => updateLocalQuantity(item.product.id, Math.max(1, parseInt(e.target.value) || 1))}
+                    className="text-center h-7 w-16 text-sm"
+                    min="1"
+                  />
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => updateLocalQuantity(item.product.id, item.quantity + 1)}
+                    className="h-7 w-7 p-0"
+                  >
+                    <Plus className="w-3 h-3" />
+                  </Button>
+                  <span className="text-sm text-muted-foreground">
+                    {item.product.type === "granel" ? "kg" : "un"}
                   </span>
                 </div>
+
                 {item.product.price && (
-                  <div className="text-xs text-muted-foreground">
-                    R$ {(item.product.price * item.quantity).toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
+                  <div className="text-sm font-medium text-primary">
+                    Subtotal: R$ {(item.product.price * item.quantity).toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                   </div>
                 )}
               </div>
             ))}
-            <div className="border-t pt-2 mt-3">
-              <div className="flex justify-between items-center font-semibold">
+            <div className="border-t pt-3 mt-3">
+              <div className="flex justify-between items-center font-bold text-lg">
                 <span>Total:</span>
                 <span className="text-primary">
-                  R$ {cartItems.reduce((total, item) => {
+                  R$ {localItems.reduce((total, item) => {
                     return total + (item.product.price ? item.product.price * item.quantity : 0);
                   }, 0).toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                 </span>

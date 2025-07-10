@@ -85,7 +85,6 @@ const StickyHeader = () => {
 
           {/* Desktop Contact Info */}
           <div className="hidden lg:flex items-center space-x-4">
-            <CartButton />
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
               <Phone className="w-4 h-4" />
               <span>(31) 98331-9637</span>
@@ -97,6 +96,7 @@ const StickyHeader = () => {
             >
               WhatsApp
             </Button>
+            <CartButton />
           </div>
 
           {/* Mobile Actions */}

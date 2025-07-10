@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { MessageCircle, Store, Package, Minus, Plus, ShoppingCart } from "lucide-react";
 import { useCart } from "@/contexts/CartContext";
 import { useToast } from "@/hooks/use-toast";
+import PickupForm from "./PickupForm";
 
 interface Product {
   id: string;
@@ -24,6 +25,7 @@ interface ProductCardProps {
 
 const ProductCard = ({ product }: ProductCardProps) => {
   const [quantity, setQuantity] = useState(1);
+  const [showPickupForm, setShowPickupForm] = useState(false);
   const { addToCart } = useCart();
   const { toast } = useToast();
 
@@ -42,6 +44,10 @@ const ProductCard = ({ product }: ProductCardProps) => {
       description: `${product.name} (${quantity}${product.type === "granel" ? "kg" : " un"}) foi adicionado ao carrinho.`,
     });
     setQuantity(1);
+  };
+
+  const handlePickupClick = () => {
+    setShowPickupForm(true);
   };
 
   const increaseQuantity = () => {
@@ -156,6 +162,15 @@ const ProductCard = ({ product }: ProductCardProps) => {
           <div className="space-y-2">
             <Button 
               className="w-full pickup-button"
+              onClick={handlePickupClick}
+            >
+              <Store className="w-4 h-4 mr-2" />
+              Retirar na loja
+            </Button>
+
+            <Button 
+              variant="outline"
+              className="w-full"
               onClick={handleAddToCart}
             >
               <ShoppingCart className="w-4 h-4 mr-2" />
@@ -174,6 +189,14 @@ const ProductCard = ({ product }: ProductCardProps) => {
         </CardContent>
       </Card>
 
+      {/* Pickup Form Modal */}
+      {showPickupForm && (
+        <PickupForm
+          product={product}
+          quantity={quantity}
+          onClose={() => setShowPickupForm(false)}
+        />
+      )}
     </>
   );
 };
