@@ -144,7 +144,7 @@ const mockProducts = [
     category: "cachorro" as const,
     price: 9.90,
     description: "Ração completa para filhotes com vitaminas, minerais e ômegas para crescimento saudável.",
-    image: "https://static.petz.com.br/produtos/79535/05f1c77a8e4ccdfa513df632fb75bdb4.jpeg"
+    image: "https://http2.mlstatic.com/D_NQ_NP_2X_649592-MLU72584277816_112023-F.webp"
   },
   {
     id: "2",
@@ -153,7 +153,7 @@ const mockProducts = [
     category: "cachorro" as const,
     price: 9.90,
     description: "Ração gourmet premium para filhotes, alta palatabilidade e proteína animal nobre.",
-    image: "https://img.petlove.com.br/products/002/002856-02.jpg"
+    image: "https://i3-imagens-prd.araujo.com.br/webp/102723/138554_7898256300783_1.webp"
   },
   {
     id: "3",
@@ -162,7 +162,7 @@ const mockProducts = [
     category: "cachorro" as const,
     price: 7.90,
     description: "Para cães adultos de todas as raças, com proteína de carne e fórmula balanceada.",
-    image: "https://static.petz.com.br/produtos/74119/1b9fa6c4f806b8cd72b2547afb0ecc0c.jpeg"
+    image: "https://cdn.awsli.com.br/2500x2500/2485/2485118/produto/2582434536bfde7c591.jpg"
   },
   {
     id: "4",
@@ -171,7 +171,7 @@ const mockProducts = [
     category: "gato" as const,
     price: 11.50,
     description: "Livre de corantes, mistura de peixe, carne e vegetais para gatos adultos e filhotes.",
-    image: "https://static.petz.com.br/produtos/45678/32f7abcd1234hotcatmix.jpeg"
+    image: "https://cdn.awsli.com.br/600x700/2485/2485118/produto/2172472699bda2ba4cc.jpg"
   },
   {
     id: "5",
@@ -180,7 +180,7 @@ const mockProducts = [
     category: "cachorro" as const,
     price: 19.90,
     description: "Fórmula natural com frango e linhaça, ideal para cães mini e pequenos adultos.",
-    image: "https://static.petz.com.br/produtos/12345/naturallife-mini.jpeg"
+    image: "https://http2.mlstatic.com/D_NQ_NP_2X_920173-MLA85463110251_052025-F.webp"
   },
   {
     id: "6",
@@ -189,7 +189,7 @@ const mockProducts = [
     category: "gato" as const,
     price: 12.90,
     description: "Premium plus para gatos adultos, com proteínas nobres e sabores irresistíveis.",
-    image: "https://static.petz.com.br/produtos/23456/quatre-gato.jpeg"
+    image: "https://http2.mlstatic.com/D_NQ_NP_2X_851137-MLU76156496381_052024-F.webp"
   },
   {
     id: "7",
@@ -198,7 +198,7 @@ const mockProducts = [
     category: "cachorro" as const,
     price: 10.90,
     description: "Ração para cães adultos de porte médio a grande, proteína rica e energia balanceada.",
-    image: "https://static.petz.com.br/produtos/34567/quatre-medgrande.jpeg"
+    image: "https://m.media-amazon.com/images/I/51siY190MoL._AC_.jpg"
   },
   {
     id: "8",
@@ -207,7 +207,7 @@ const mockProducts = [
     category: "cachorro" as const,
     price: 16.90,
     description: "Supreme natural para raças pequenas, com frango e batata-doce para energia saudável.",
-    image: "https://static.petz.com.br/produtos/45678/quatre-supreme-peq.jpeg"
+    image: "https://http2.mlstatic.com/D_NQ_NP_2X_832938-MLB49387659326_032022-F.webp"
   },
   {
     id: "9",
@@ -216,7 +216,7 @@ const mockProducts = [
     category: "cachorro" as const,
     price: 7.50,
     description: "Ração sabor carne para cães adultos, fórmula simples e nutritiva.",
-    image: "https://static.petz.com.br/produtos/56789/capitaodog-carne.jpeg"
+    image: "https://http2.mlstatic.com/D_NQ_NP_2X_986762-MLA84605076325_052025-F.webp"
   },
   {
     id: "10",
@@ -225,7 +225,7 @@ const mockProducts = [
     category: "cachorro" as const,
     price: 12.90,
     description: "Premium plus para adultos, sabor carne, maior digestibilidade e palatabilidade.",
-    image: "https://static.petz.com.br/produtos/67890/specialdog-adulto.jpeg"
+    image: "https://www.specialdog.com.br/assets/uploads/produtos/special-dog-plus-adultos-carne-x4fm8-20230418131048.png"
   },
   {
     id: "11",
@@ -234,7 +234,7 @@ const mockProducts = [
     category: "cachorro" as const,
     price: 7.90,
     description: "Ração completa para adultos, com vitamins e ômegas para manutenção diária.",
-    image: "https://static.petz.com.br/produtos/78901/magnustododia-carne.jpeg"
+    image: "https://http2.mlstatic.com/D_NQ_NP_2X_993018-MLA52123906941_102022-F.webp"
   },
   {
     id: "12",
@@ -243,25 +243,25 @@ const mockProducts = [
     category: "outros" as const,
     price: 2.90,
     description: "Milho a granel, ótimo para aves e pequenos pets.",
-    image: "https://static.petz.com.br/produtos/89012/milho.jpeg"
+    image: "https://io.convertiez.com.br/m/trimais/shop/products/images/11935/medium/milho-a-granel-200g_10256.jpg"
   },
   {
     id: "13",
-    name: "Quatree Gourmet Pequeno Adulto",
+    name: "Quatree Gourmet Ração Seca Cães Adultos Raças Pequenas",
     type: "granel" as const,
     category: "cachorro" as const,
     price: 10.90,
     description: "Gourmet premium para cães pequenos adultos, proteína de qualidade.",
-    image: "https://static.petz.com.br/produtos/90123/quatre-pequeno.jpeg"
+    image: "https://i3-imagens-prd.araujo.com.br/webp/10479/138564_7898256300837_1.webp"
   },
   {
     id: "14",
-    name: "Quatree Supreme Senior 7+",
+    name: "Ração Quatree Supreme Cães Sênior +7 Raças Médias e Grande Cordeiro e Frango",
     type: "granel" as const,
     category: "cachorro" as const,
     price: 16.90,
     description: "Supreme para cães 7+, ingredientes naturais e suporte articular.",
-    image: "https://static.petz.com.br/produtos/01234/quatre-senior7p.jpeg"
+    image: "https://a-static.mlcdn.com.br/800x560/racao-quatree-supreme-caes-senior-7-racas-medias-e-grande-cordeiro-e-frango-15kg/tudodebichoii/117728/787a98725308e0bd4da99ff7f00736af.jpeg"
   },
   {
     id: "15",
@@ -270,7 +270,7 @@ const mockProducts = [
     category: "gato" as const,
     price: 17.90,
     description: "Sachê recheado para gatos castrados, sabor frango premium.",
-    image: "https://static.petz.com.br/produtos/11223/magnumcat-frango.jpeg"
+    image: "https://i3-imagens-prd.araujo.com.br/webp/97467/7898363318541_1.webp"
   },
   {
     id: "16",
@@ -279,7 +279,7 @@ const mockProducts = [
     category: "gato" as const,
     price: 8.50,
     description: "Mix nutritivo para gatos, com cereais, vitaminas e fibras.",
-    image: "https://static.petz.com.br/produtos/22334/gatanmix.jpeg"
+    image: "https://http2.mlstatic.com/D_NQ_NP_2X_834089-MLU73280655300_122023-F.webp"
   },
   {
     id: "17",
@@ -288,7 +288,7 @@ const mockProducts = [
     category: "cachorro" as const,
     price: 14.90,
     description: "Fórmula natural premium, frango & arroz, suporte para cães pequenos adultos.",
-    image: "https://static.petz.com.br/produtos/33445/quatrelife-pequeno.jpeg"
+    image: "https://http2.mlstatic.com/D_NQ_NP_2X_614135-MLA76670544209_052024-F.webp"
   },
   {
     id: "18",
@@ -297,7 +297,7 @@ const mockProducts = [
     category: "cachorro" as const,
     price: 7.90,
     description: "Ração completa adaptada para cães pequenos, vitaminas e ômegas.",
-    image: "https://static.petz.com.br/produtos/44556/magnuspequeno.jpeg"
+    image: "https://http2.mlstatic.com/D_NQ_NP_2X_998558-MLU70099892399_062023-F.webp"
   },
   {
     id: "19",
@@ -306,8 +306,7 @@ const mockProducts = [
     category: "cachorro" as const,
     price: 18.90,
     description: "Ultralife senior +7 com frango, suporte articular e vitalidade.",
-    image: "https://static.petz.com.br/produtos/55667/specialdog-senior7.jpeg"
-  },
+    image: "https://http2.mlstatic.com/D_NQ_NP_2X_603711-MLB80045474336_102024-F-raco-special-dog-ultralife-racas-pequenas-snior-7-101kg.webp"},
   {
     id: "20",
     name: "PremierPet Golden Formula Pequeno Frango & Arroz",
@@ -315,7 +314,7 @@ const mockProducts = [
     category: "cachorro" as const,
     price: 14.90,
     description: "Golden formula premium para pequenos adultos, frango e arroz balanceado.",
-    image: "https://static.petz.com.br/produtos/66778/premierpet-pequeno.jpeg"
+    image: "https://http2.mlstatic.com/D_NQ_NP_2X_801613-MLU72822966457_112023-F.webp"
   }
 ];
 

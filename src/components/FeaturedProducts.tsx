@@ -6,58 +6,58 @@ import { Link } from "react-router-dom";
 const featuredProducts = [
   {
     id: "1",
-    name: "Ração Premium Cães Adultos",
+    name: "Magnus Filhotes Todo Dia",
     type: "granel" as const,
     category: "cachorro" as const,
-    price: 8.50,
-    description: "Ração premium para cães adultos, rica em proteínas e vitaminas",
-    image: "https://images.unsplash.com/photo-1605568427561-40dd23c2acea?w=400&h=300&fit=crop"
+    price: 9.90,
+    description: "Ração completa para filhotes com vitaminas, minerais e ômegas para crescimento saudável.",
+    image: "https://http2.mlstatic.com/D_NQ_NP_2X_649592-MLU72584277816_112023-F.webp"
   },
   {
     id: "2",
-    name: "Ração Gatos Castrados",
-    type: "pacote" as const,
-    category: "gato" as const,
-    price: 25.90,
-    description: "Especial para gatos castrados, controla peso e saúde urinária",
-    image: "https://images.unsplash.com/photo-1574144611937-0df059b5ef3e?w=400&h=300&fit=crop"
+    name: "Quatree Gourmet Premium Filhotes",
+    type: "granel" as const,
+    category: "cachorro" as const,
+    price: 9.90,
+    description: "Ração gourmet premium para filhotes, alta palatabilidade e proteína animal nobre.",
+    image: "https://i3-imagens-prd.araujo.com.br/webp/102723/138554_7898256300783_1.webp"
   },
   {
     id: "7",
-    name: "Sachê Whiskas Gato",
-    type: "pacote" as const,
-    category: "saches" as const,
-    price: 2.50,
-    description: "Sachê saboroso para gatos adultos, vários sabores",
-    image: "https://images.unsplash.com/photo-1571566882372-1598d88abd90?w=400&h=300&fit=crop"
+    name: "Quatree Gourmet Adulto Médio-Grande",
+    type: "granel" as const,
+    category: "cachorro" as const,
+    price: 10.90,
+    description: "Ração para cães adultos de porte médio a grande, proteína rica e energia balanceada.",
+    image: "https://m.media-amazon.com/images/I/51siY190MoL._AC_.jpg"
   },
   {
     id: "9",
-    name: "Comedouro Inox Duplo",
-    type: "pacote" as const,
-    category: "potes" as const,
-    price: 35.00,
-    description: "Comedouro duplo em aço inox, água e ração",
-    image: "https://images.unsplash.com/photo-1623387641168-d9803ddd3f35?w=400&h=300&fit=crop"
+    name: "Capitão Dog Adulto Sabor Carne",
+    type: "granel" as const,
+    category: "cachorro" as const,
+    price: 7.50,
+    description: "Ração sabor carne para cães adultos, fórmula simples e nutritiva.",
+    image: "https://http2.mlstatic.com/D_NQ_NP_2X_986762-MLA84605076325_052025-F.webp"
   },
   {
     id: "11",
-    name: "Camiseta Pet Estampada",
-    type: "pacote" as const,
-    category: "roupas" as const,
-    price: 18.00,
-    description: "Camiseta confortável para cães, várias estampas",
-    image: "https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=400&h=300&fit=crop"
+    name: "Magnus Todo Dia Adulto Carne",
+    type: "granel" as const,
+    category: "cachorro" as const,
+    price: 7.90,
+    description: "Ração completa para adultos, com vitamins e ômegas para manutenção diária.",
+    image: "https://http2.mlstatic.com/D_NQ_NP_2X_993018-MLA52123906941_102022-F.webp"
   },
   {
     id: "6",
-    name: "Mix Aves Tropical",
+    name: "Quatree Gourmet Premium Plus Gato Adulto",
     type: "granel" as const,
-    category: "aves" as const,
-    price: 12.80,
-    description: "Mistura nutritiva para aves tropicais e canários",
-    image: "https://images.unsplash.com/photo-1552728089-57bdde30beb3?w=400&h=300&fit=crop"
-  }
+    category: "gato" as const,
+    price: 12.90,
+    description: "Premium plus para gatos adultos, com proteínas nobres e sabores irresistíveis.",
+    image: "https://http2.mlstatic.com/D_NQ_NP_2X_851137-MLU76156496381_052024-F.webp"
+  },
 ];
 
 const FeaturedProducts = () => {
