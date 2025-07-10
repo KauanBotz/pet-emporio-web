@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Phone, MapPin } from "lucide-react";
+import { Link } from "react-router-dom";
 import heroBackground from "@/assets/hero-background.jpg";
 
 const HeroSection = () => {
@@ -45,13 +46,14 @@ const HeroSection = () => {
 
         {/* Action Buttons */}
         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mb-8 sm:mb-12 px-4">
-          <Button 
-            size="lg" 
-            className="pickup-button text-base sm:text-lg px-6 sm:px-8 py-4 sm:py-6 w-full sm:w-auto"
-            onClick={scrollToProducts}
-          >
-            Ver Produtos
-          </Button>
+          <Link to="/produtos">
+            <Button 
+              size="lg" 
+              className="pickup-button text-base sm:text-lg px-6 sm:px-8 py-4 sm:py-6 w-full sm:w-auto"
+            >
+              Ver Produtos
+            </Button>
+          </Link>
           <Button 
             variant="outline" 
             size="lg"
