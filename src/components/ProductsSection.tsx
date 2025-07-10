@@ -187,14 +187,14 @@ const ProductsSection = () => {
         {/* Advanced Search */}
         <div className="mb-8 slide-up">
           {/* Search Bar */}
-          <div className="max-w-2xl mx-auto mb-6">
-            <div className="relative">
+          <div className="flex justify-end mb-6">
+            <div className="relative w-full max-w-md">
               <Search className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
               <Input
                 placeholder="Buscar produtos..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="pl-10 h-12 text-base"
+                className="pl-10 h-12 text-base bg-primary/10 border-primary/20 focus-visible:border-primary"
               />
             </div>
           </div>
