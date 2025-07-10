@@ -75,7 +75,11 @@ const FeaturedProducts = () => {
         </div>
 
         {/* Products Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4 sm:gap-6 fade-in">
+        <div 
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4 sm:gap-6 fade-in"
+          role="region"
+          aria-label="Grade de produtos em destaque"
+        >
           {featuredProducts.map(product => (
             <ProductCard key={product.id} product={product} />
           ))}
@@ -84,7 +88,11 @@ const FeaturedProducts = () => {
         {/* View All Products Button */}
         <div className="text-center mt-12 slide-up">
           <Link to="/produtos">
-            <Button size="lg" className="pickup-button">
+            <Button 
+              size="lg" 
+              className="pickup-button focus-outline"
+              aria-label="Ver catálogo completo de produtos"
+            >
               Ver Todos os Produtos
             </Button>
           </Link>

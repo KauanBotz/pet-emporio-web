@@ -20,6 +20,8 @@ const HeroSection = () => {
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${heroBackground})` }}
+        role="img"
+        aria-label="Imagem de fundo da seção principal mostrando rações e produtos para pets"
       >
         <div className="absolute inset-0 bg-background/80"></div>
       </div>
@@ -49,7 +51,8 @@ const HeroSection = () => {
           <Link to="/produtos">
             <Button 
               size="lg" 
-              className="pickup-button text-sm sm:text-lg px-4 sm:px-8 py-3 sm:py-6 w-full sm:w-auto"
+              className="pickup-button text-sm sm:text-lg px-4 sm:px-8 py-3 sm:py-6 w-full sm:w-auto focus-outline"
+              aria-label="Ver todos os produtos disponíveis na loja"
             >
               Ver Produtos
             </Button>
@@ -57,8 +60,9 @@ const HeroSection = () => {
           <Button 
             variant="outline" 
             size="lg"
-            className="text-sm sm:text-lg px-4 sm:px-8 py-3 sm:py-6 border-2 border-foreground text-foreground hover:bg-foreground hover:text-background w-full sm:w-auto"
+            className="text-sm sm:text-lg px-4 sm:px-8 py-3 sm:py-6 border-2 border-foreground text-foreground hover:bg-foreground hover:text-background w-full sm:w-auto focus-outline"
             onClick={openStoreModal}
+            aria-label="Conhecer mais sobre nossa loja física"
           >
             Conheça nossa loja
           </Button>
@@ -67,18 +71,28 @@ const HeroSection = () => {
         {/* Quick Contact Info */}
         <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center text-muted-foreground text-sm sm:text-base px-4">
           <div className="flex items-center gap-2">
-            <Phone className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
-            <span>(31) 98331-9637</span>
+            <Phone className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" aria-hidden="true" />
+            <span>
+              <span className="sr-only">Telefone WhatsApp: </span>
+              (31) 98331-9637
+            </span>
           </div>
           <div className="flex items-center gap-2 text-center">
-            <MapPin className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
-            <span className="break-words">Rua Frei Otto, 525 - Santa Mônica - BH</span>
+            <MapPin className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" aria-hidden="true" />
+            <span className="break-words">
+              <span className="sr-only">Endereço: </span>
+              Rua Frei Otto, 525 - Santa Mônica - BH
+            </span>
           </div>
         </div>
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <div 
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce"
+        aria-hidden="true"
+        role="presentation"
+      >
         <div className="w-6 h-10 border-2 border-foreground rounded-full flex justify-center">
           <div className="w-1 h-3 bg-foreground rounded-full mt-2 animate-pulse"></div>
         </div>

@@ -103,7 +103,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
             {product.image ? (
               <img 
                 src={product.image} 
-                alt={product.name}
+                alt={`Imagem do produto ${product.name} - ${product.category === "cachorro" ? "para cães" : product.category === "gato" ? "para gatos" : product.category === "aves" ? "para aves" : "para pets"}`}
                 className="w-full h-full object-contain"
                 onError={(e) => {
                   const target = e.target as HTMLImageElement;
@@ -113,7 +113,8 @@ const ProductCard = ({ product }: ProductCardProps) => {
               />
             ) : null}
             <div className={`w-full h-full flex items-center justify-center ${product.image ? 'hidden' : ''}`}>
-              <Package className="w-12 h-12 text-muted-foreground" />
+              <Package className="w-12 h-12 text-muted-foreground" aria-hidden="true" />
+              <span className="sr-only">Imagem do produto não disponível</span>
             </div>
           </div>
 
@@ -129,63 +130,69 @@ const ProductCard = ({ product }: ProductCardProps) => {
         <CardContent className="space-y-4">
           {/* Quantity Selector */}
           <div className="space-y-2">
-            <Label className="text-sm font-medium">
+            <Label htmlFor={`quantity-${product.id}`} className="text-sm font-medium">
               Quantidade ({product.type === "granel" ? "kg" : "unidades"})
             </Label>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2" role="group" aria-label="Seletor de quantidade">
               <Button
                 variant="outline"
                 size="sm"
                 onClick={decreaseQuantity}
-                className="h-8 w-8 p-0"
+                className="h-11 w-11 p-0 focus-outline"
+                aria-label="Diminuir quantidade"
+                disabled={quantity <= 1}
               >
-                <Minus className="w-4 h-4" />
+                <Minus className="w-4 h-4" aria-hidden="true" />
               </Button>
               <Input
+                id={`quantity-${product.id}`}
                 type="number"
                 value={quantity}
                 onChange={(e) => setQuantity(Math.max(1, parseInt(e.target.value) || 1))}
-                className="text-center h-8 w-20"
+                className="text-center h-11 w-20 focus-outline"
                 min="1"
+                aria-label={`Quantidade: ${quantity} ${product.type === "granel" ? "quilogramas" : "unidades"}`}
               />
               <Button
                 variant="outline"
                 size="sm"
                 onClick={increaseQuantity}
-                className="h-8 w-8 p-0"
+                className="h-11 w-11 p-0 focus-outline"
+                aria-label="Aumentar quantidade"
               >
-                <Plus className="w-4 h-4" />
+                <Plus className="w-4 h-4" aria-hidden="true" />
               </Button>
             </div>
           </div>
 
           {/* Action Buttons */}
-          <div className="space-y-2">
-            
-              <Button 
+          <div className="space-y-3">
+            <Button 
               variant="outline"
-              className="w-full"
+              className="w-full min-h-11 focus-outline"
               onClick={handleAddToCart}
+              aria-label={`Adicionar ${product.name} ao carrinho de compras`}
             >
-              <ShoppingCart className="w-4 h-4 mr-2" />
+              <ShoppingCart className="w-4 h-4 mr-2" aria-hidden="true" />
               Adicionar ao carrinho
             </Button>
-            
 
             <Button 
-              className="w-full pickup-button"
+              className="w-full pickup-button min-h-11 focus-outline"
               onClick={handlePickupClick}
+              aria-label={`Agendar retirada na loja para ${product.name}`}
             >
-              <Store className="w-4 h-4 mr-2" />
+              <Store className="w-4 h-4 mr-2" aria-hidden="true" />
               Retirar na loja
             </Button>
 
             <Button 
               variant="outline"
-              className="w-full whatsapp-button border-green-500 text-green-600 hover:text-white"
+              className="w-full whatsapp-button border-green-600 text-green-700 hover:text-white min-h-11 focus-outline"
               onClick={() => window.open(generateWhatsAppLink(), '_blank')}
+              aria-label={`Encomendar ${product.name} pelo WhatsApp`}
             >
-              <MessageCircle className="w-4 h-4 mr-2" />
+              <MessageCircle className="w-4 h-4 mr-2" aria-hidden="true" />
               Encomendar direto no WhatsApp
             </Button>
           </div>

@@ -34,48 +34,48 @@ const StorePresentation = () => {
 
             {/* Contact Cards */}
             <div className="space-y-4">
-              <Card className="product-card-hover">
+              <Card className="product-card-hover" tabIndex={0}>
                 <CardContent className="p-4">
                   <div className="flex items-center gap-3">
-                    <MapPin className="w-5 h-5 text-primary" />
+                    <MapPin className="w-5 h-5 text-primary" aria-hidden="true" />
                     <div>
-                      <p className="font-medium text-foreground">Endereço</p>
+                      <h4 className="font-medium text-foreground">Endereço</h4>
                       <p className="text-muted-foreground">Rua Frei Otto, 525 - Santa Mônica - BH</p>
                     </div>
                   </div>
                 </CardContent>
               </Card>
 
-              <Card className="product-card-hover">
+              <Card className="product-card-hover" tabIndex={0}>
                 <CardContent className="p-4">
                   <div className="flex items-center gap-3">
-                    <Phone className="w-5 h-5 text-primary" />
+                    <Phone className="w-5 h-5 text-primary" aria-hidden="true" />
                     <div>
-                      <p className="font-medium text-foreground">WhatsApp</p>
+                      <h4 className="font-medium text-foreground">WhatsApp</h4>
                       <p className="text-muted-foreground">(31) 98331-9637</p>
                     </div>
                   </div>
                 </CardContent>
               </Card>
 
-              <Card className="product-card-hover">
+              <Card className="product-card-hover" tabIndex={0}>
                 <CardContent className="p-4">
                   <div className="flex items-center gap-3">
-                    <Instagram className="w-5 h-5 text-primary" />
+                    <Instagram className="w-5 h-5 text-primary" aria-hidden="true" />
                     <div>
-                      <p className="font-medium text-foreground">Instagram</p>
+                      <h4 className="font-medium text-foreground">Instagram</h4>
                       <p className="text-muted-foreground">@emporiodasracoesbhz</p>
                     </div>
                   </div>
                 </CardContent>
               </Card>
 
-              <Card className="product-card-hover">
+              <Card className="product-card-hover" tabIndex={0}>
                 <CardContent className="p-4">
                   <div className="flex items-center gap-3">
-                    <Clock className="w-5 h-5 text-primary" />
+                    <Clock className="w-5 h-5 text-primary" aria-hidden="true" />
                     <div>
-                      <p className="font-medium text-foreground">Horário</p>
+                      <h4 className="font-medium text-foreground">Horário</h4>
                       <p className="text-muted-foreground">Segunda a Sábado - 7h às 19h</p>
                     </div>
                   </div>

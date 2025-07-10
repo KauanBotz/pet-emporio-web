@@ -44,12 +44,24 @@ const openInstagram = () => {
 
           {/* Contact Cards */}
           <div className="space-y-4">
-            <Card className="product-card-hover cursor-pointer" onClick={openMaps}>
+            <Card 
+              className="product-card-hover cursor-pointer focus-outline" 
+              onClick={openMaps}
+              tabIndex={0}
+              role="button"
+              aria-label="Abrir localização no Google Maps"
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  openMaps();
+                }
+              }}
+            >
               <CardContent className="p-4">
                 <div className="flex items-center gap-3">
-                  <MapPin className="w-5 h-5 text-primary" />
+                  <MapPin className="w-5 h-5 text-primary" aria-hidden="true" />
                   <div>
-                    <p className="font-medium text-foreground">Localização</p>
+                    <h4 className="font-medium text-foreground">Localização</h4>
                     <p className="text-sm text-muted-foreground">
                       Rua Frei Otto, 525<br />
                       Santa Mônica - BH
@@ -59,12 +71,24 @@ const openInstagram = () => {
               </CardContent>
             </Card>
 
-            <Card className="product-card-hover cursor-pointer" onClick={openWhatsApp}>
+            <Card 
+              className="product-card-hover cursor-pointer focus-outline" 
+              onClick={openWhatsApp}
+              tabIndex={0}
+              role="button"
+              aria-label="Abrir WhatsApp para contato"
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  openWhatsApp();
+                }
+              }}
+            >
               <CardContent className="p-4">
                 <div className="flex items-center gap-3">
-                  <Phone className="w-5 h-5 text-primary" />
+                  <Phone className="w-5 h-5 text-primary" aria-hidden="true" />
                   <div>
-                    <p className="font-medium text-foreground">WhatsApp</p>
+                    <h4 className="font-medium text-foreground">WhatsApp</h4>
                     <p className="text-sm text-muted-foreground">(31) 98331-9637</p>
                   </div>
                 </div>
@@ -74,12 +98,12 @@ const openInstagram = () => {
 
           {/* Quick Actions */}
           <div className="space-y-4">
-            <Card>
+            <Card tabIndex={0}>
               <CardContent className="p-4">
                 <div className="flex items-center gap-3 mb-3">
-                  <Clock className="w-5 h-5 text-primary" />
+                  <Clock className="w-5 h-5 text-primary" aria-hidden="true" />
                   <div>
-                    <p className="font-medium text-foreground">Horário</p>
+                    <h4 className="font-medium text-foreground">Horário</h4>
                     <p className="text-sm text-muted-foreground">
                       Segunda a Sábado<br />
                       7h às 19h
@@ -89,30 +113,33 @@ const openInstagram = () => {
               </CardContent>
             </Card>
 
-            <div className="space-y-2">
+            <div className="space-y-3">
               <Button 
-                className="w-full whatsapp-button"
+                className="w-full whatsapp-button focus-outline"
                 onClick={openWhatsApp}
+                aria-label="Iniciar conversa no WhatsApp"
               >
-                <Phone className="w-4 h-4 mr-2" />
+                <Phone className="w-4 h-4 mr-2" aria-hidden="true" />
                 Falar no WhatsApp
               </Button>
               
               <Button 
                 variant="outline" 
-                className="w-full"
+                className="w-full min-h-11 focus-outline"
                 onClick={openDirections}
+                aria-label="Obter direções no Google Maps"
               >
-                <MapPin className="w-4 h-4 mr-2" />
+                <MapPin className="w-4 h-4 mr-2" aria-hidden="true" />
                 Como Chegar
               </Button>
               
               <Button 
                 variant="outline" 
-                className="w-full"
+                className="w-full min-h-11 focus-outline"
                 onClick={openInstagram}
+                aria-label="Visitar nosso Instagram"
               >
-                <Instagram className="w-4 h-4 mr-2" />
+                <Instagram className="w-4 h-4 mr-2" aria-hidden="true" />
                 @emporiodasracoesbhz
               </Button>
             </div>
@@ -122,6 +149,7 @@ const openInstagram = () => {
         {/* Map Section */}
         <div className="mb-6 sm:mb-8">
           <h4 className="text-base sm:text-lg font-bold text-foreground mb-4 text-center">
+            Nossa Localização
           </h4>
           <div className="w-full h-48 sm:h-64 rounded-lg overflow-hidden">
             <iframe 
@@ -133,6 +161,8 @@ const openInstagram = () => {
               loading="lazy" 
               referrerPolicy="no-referrer-when-downgrade"
               className="rounded-lg"
+              title="Mapa de localização do Empório das Rações"
+              aria-label="Localização da loja no Google Maps - Rua Frei Otto, 525, Santa Mônica, Belo Horizonte"
             />
           </div>
         </div>

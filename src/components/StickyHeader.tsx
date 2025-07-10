@@ -61,23 +61,26 @@ const StickyHeader = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex items-center space-x-8" role="navigation" aria-label="Menu principal">
             <Link
               to="/produtos"
-              className="text-foreground hover:text-primary transition-colors"
+              className="text-foreground hover:text-primary transition-colors focus-outline px-2 py-1 rounded"
               onClick={handleProductsClick}
+              aria-label="Ver produtos disponíveis"
             >
               Produtos
             </Link>
             <button
               onClick={() => scrollToSection('sobre-loja')}
-              className="text-foreground hover:text-primary transition-colors"
+              className="text-foreground hover:text-primary transition-colors focus-outline px-2 py-1 rounded"
+              aria-label="Ir para seção sobre a loja"
             >
               Sobre
             </button>
             <button
               onClick={() => scrollToSection('contato')}
-              className="text-foreground hover:text-primary transition-colors"
+              className="text-foreground hover:text-primary transition-colors focus-outline px-2 py-1 rounded"
+              aria-label="Ir para seção de contato"
             >
               Contato
             </button>
@@ -86,13 +89,17 @@ const StickyHeader = () => {
           {/* Desktop Contact Info */}
           <div className="hidden lg:flex items-center space-x-4">
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
-              <Phone className="w-4 h-4" />
-              <span>(31) 98331-9637</span>
+              <Phone className="w-4 h-4" aria-hidden="true" />
+              <span>
+                <span className="sr-only">Telefone: </span>
+                (31) 98331-9637
+              </span>
             </div>
             <Button
               size="sm"
               className="whatsapp-button"
               onClick={openWhatsApp}
+              aria-label="Abrir WhatsApp para contato direto"
             >
               WhatsApp
             </Button>
@@ -108,13 +115,16 @@ const StickyHeader = () => {
             <Button
               variant="ghost"
               size="sm"
-              className="md:hidden"
+              className="md:hidden focus-outline"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-expanded={isMobileMenuOpen}
+              aria-controls="mobile-menu"
+              aria-label={isMobileMenuOpen ? "Fechar menu" : "Abrir menu"}
             >
               {isMobileMenuOpen ? (
-                <X className="w-6 h-6" />
+                <X className="w-6 h-6" aria-hidden="true" />
               ) : (
-                <Menu className="w-6 h-6" />
+                <Menu className="w-6 h-6" aria-hidden="true" />
               )}
             </Button>
           </div>
@@ -122,36 +132,46 @@ const StickyHeader = () => {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden mt-4 pb-4 border-t border-border animate-fade-in">
-            <nav className="flex flex-col space-y-4 mt-4">
+          <div 
+            id="mobile-menu"
+            className="md:hidden mt-4 pb-4 border-t border-border animate-fade-in"
+          >
+            <nav className="flex flex-col space-y-4 mt-4" role="navigation" aria-label="Menu mobile">
               <Link
                 to="/produtos"
-                className="text-left text-foreground hover:text-primary transition-colors"
+                className="text-left text-foreground hover:text-primary transition-colors focus-outline px-2 py-1 rounded"
                 onClick={handleProductsClick}
+                aria-label="Ver produtos disponíveis"
               >
                 Produtos
               </Link>
               <button
                 onClick={() => scrollToSection('sobre-loja')}
-                className="text-left text-foreground hover:text-primary transition-colors"
+                className="text-left text-foreground hover:text-primary transition-colors focus-outline px-2 py-1 rounded"
+                aria-label="Ir para seção sobre a loja"
               >
                 Sobre
               </button>
               <button
                 onClick={() => scrollToSection('contato')}
-                className="text-left text-foreground hover:text-primary transition-colors"
+                className="text-left text-foreground hover:text-primary transition-colors focus-outline px-2 py-1 rounded"
+                aria-label="Ir para seção de contato"
               >
                 Contato
               </button>
               <div className="pt-4 border-t border-border">
                 <div className="flex items-center gap-2 text-sm text-muted-foreground mb-3">
-                  <Phone className="w-4 h-4" />
-                  <span>(31) 98331-9637</span>
+                  <Phone className="w-4 h-4" aria-hidden="true" />
+                  <span>
+                    <span className="sr-only">Telefone: </span>
+                    (31) 98331-9637
+                  </span>
                 </div>
                 <Button
                   size="sm"
                   className="whatsapp-button w-full"
                   onClick={openWhatsApp}
+                  aria-label="Abrir WhatsApp para conversar diretamente"
                 >
                   Falar no WhatsApp
                 </Button>
