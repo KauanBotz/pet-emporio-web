@@ -50,6 +50,7 @@ const PickupForm = ({ product, quantity, cartItems, onClose }: PickupFormProps) 
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    console.log("PickupForm: Botão Confirmar Retirada clicado", formData);
     setIsSubmitting(true);
 
     // Simulate API call - replace with actual backend integration
