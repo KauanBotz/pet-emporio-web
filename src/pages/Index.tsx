@@ -3,14 +3,18 @@ import HeroSection from "@/components/HeroSection";
 import StorePresentation from "@/components/StorePresentation";
 import FeaturedProducts from "@/components/FeaturedProducts";
 import Footer from "@/components/Footer";
+import SkipLink from "@/components/SkipLink";
 
 const Index = () => {
   return (
     <div className="min-h-screen">
+      <SkipLink />
       <StickyHeader />
-      <HeroSection />
-      <StorePresentation />
-      <FeaturedProducts />
+      <main id="main-content" tabIndex={-1}>
+        <HeroSection />
+        <StorePresentation />
+        <FeaturedProducts />
+      </main>
       <Footer />
     </div>
   );
