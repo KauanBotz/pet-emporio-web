@@ -327,6 +327,16 @@ const ProductsSection = () => {
   const [sortBy, setSortBy] = useState<"name" | "price-asc" | "price-desc">("name");
   const [showFilters, setShowFilters] = useState(false);
 
+  // Function to handle category change and clear filters
+  const handleCategoryChange = (newCategory: typeof filter) => {
+    setFilter(newCategory);
+    // Clear other filters when changing category
+    setSearchTerm("");
+    setMinPrice("");
+    setMaxPrice("");
+    setSortBy("name");
+  };
+
   const filteredProducts = mockProducts.filter(product => {
     // Text search
     if (searchTerm && !product.name.toLowerCase().includes(searchTerm.toLowerCase()) && 
@@ -472,7 +482,7 @@ const ProductsSection = () => {
                 key={key}
                 variant={filter === key ? "default" : "outline"}
                 size="sm"
-                onClick={() => setFilter(key as typeof filter)}
+                onClick={() => handleCategoryChange(key as typeof filter)}
                 className={`text-xs sm:text-sm ${filter === key ? "pickup-button" : ""}`}
               >
                 {icon} {label}
