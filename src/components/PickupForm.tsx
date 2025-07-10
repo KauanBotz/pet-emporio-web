@@ -10,7 +10,7 @@ interface Product {
   id: string;
   name: string;
   type: "granel" | "pacote";
-  category: "cachorro" | "gato" | "aves" | "saches" | "potes" | "roupas" | "peixes";
+  category: "cachorro" | "gato" | "aves" | "saches" | "potes" | "roupas" | "peixes" | "outros";
   price?: number;
   description?: string;
   image?: string;

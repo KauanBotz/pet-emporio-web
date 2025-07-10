@@ -11,7 +11,7 @@ interface Product {
   id: string;
   name: string;
   type: "granel" | "pacote";
-  category: "cachorro" | "gato" | "aves" | "saches" | "potes" | "roupas" | "peixes";
+  category: "cachorro" | "gato" | "aves" | "saches" | "potes" | "roupas" | "peixes" | "outros";
   price?: number;
   description?: string;
   image?: string;
@@ -47,13 +47,13 @@ const ProductCard = ({ product }: ProductCardProps) => {
 
   return (
     <>
-      <Card className="product-card-hover h-full">
-        <CardHeader>
+      <Card className="product-card-hover h-full flex flex-col">
+        <CardHeader className="flex-1 flex flex-col">
           <div className="flex justify-between items-start mb-2">
-            <CardTitle className="text-lg font-bold text-foreground">
+            <CardTitle className="text-lg font-bold text-foreground min-h-[3rem] flex items-center">
               {product.name}
             </CardTitle>
-            <div className="flex gap-2">
+            <div className="flex gap-2 flex-shrink-0">
               <Badge 
                 variant={product.type === "granel" ? "default" : "secondary"}
                 className="text-xs"
@@ -73,19 +73,19 @@ const ProductCard = ({ product }: ProductCardProps) => {
           </div>
 
           {/* Price Display */}
-          {product.price && (
-            <div className="mb-3">
+          <div className="mb-3 min-h-[2.5rem] flex items-center">
+            {product.price && (
               <div className="text-2xl font-bold text-primary">
                 R$ {(product.price * quantity).toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                 <span className="text-sm font-normal text-muted-foreground ml-1">
                   {product.type === "granel" ? "/kg" : "/un"}
                 </span>
               </div>
-            </div>
-          )}
+            )}
+          </div>
           
           {/* Product Image */}
-          <div className="w-full h-40 bg-muted rounded-lg overflow-hidden mb-4">
+          <div className="w-full h-40 bg-muted rounded-lg overflow-hidden mb-4 flex-shrink-0">
             {product.image ? (
               <img 
                 src={product.image} 
@@ -103,11 +103,13 @@ const ProductCard = ({ product }: ProductCardProps) => {
             </div>
           </div>
 
-          {product.description && (
-            <p className="text-sm text-muted-foreground">
-              {product.description}
-            </p>
-          )}
+          <div className="min-h-[3rem] flex items-start mb-4">
+            {product.description && (
+              <p className="text-sm text-muted-foreground line-clamp-2">
+                {product.description}
+              </p>
+            )}
+          </div>
         </CardHeader>
 
         <CardContent className="space-y-4">
