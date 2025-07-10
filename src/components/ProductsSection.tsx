@@ -6,7 +6,7 @@ import { Label } from "@/components/ui/label";
 import { Search, SlidersHorizontal } from "lucide-react";
 import ProductCard from "./ProductCard";
 
-// Mock data - replace with real product data
+/* Mock data - replace with real product data
 const mockProducts = [
   {
     id: "1",
@@ -134,7 +134,191 @@ const mockProducts = [
     description: "Ração premium para peixes ornamentais",
     image: "https://images.unsplash.com/photo-1520986606214-8b456906c813?w=400&h=300&fit=crop"
   }
+]; */
+
+const mockProducts = [
+  {
+    id: "1",
+    name: "Magnus Filhotes Todo Dia",
+    type: "granel" as const,
+    category: "cachorro" as const,
+    price: 9.90,
+    description: "Ração completa para filhotes com vitaminas, minerais e ômegas para crescimento saudável.",
+    image: "https://static.petz.com.br/produtos/79535/05f1c77a8e4ccdfa513df632fb75bdb4.jpeg"
+  },
+  {
+    id: "2",
+    name: "Quatree Gourmet Premium Filhotes",
+    type: "granel" as const,
+    category: "cachorro" as const,
+    price: 9.90,
+    description: "Ração gourmet premium para filhotes, alta palatabilidade e proteína animal nobre.",
+    image: "https://img.petlove.com.br/products/002/002856-02.jpg"
+  },
+  {
+    id: "3",
+    name: "Quatree Carne Adulto",
+    type: "granel" as const,
+    category: "cachorro" as const,
+    price: 7.90,
+    description: "Para cães adultos de todas as raças, com proteína de carne e fórmula balanceada.",
+    image: "https://static.petz.com.br/produtos/74119/1b9fa6c4f806b8cd72b2547afb0ecc0c.jpeg"
+  },
+  {
+    id: "4",
+    name: "Hot Cat Sem Corante Mix",
+    type: "granel" as const,
+    category: "gato" as const,
+    price: 11.50,
+    description: "Livre de corantes, mistura de peixe, carne e vegetais para gatos adultos e filhotes.",
+    image: "https://static.petz.com.br/produtos/45678/32f7abcd1234hotcatmix.jpeg"
+  },
+  {
+    id: "5",
+    name: "Natural Life Mini e Pequeno Frango & Linhaça",
+    type: "granel" as const,
+    category: "cachorro" as const,
+    price: 19.90,
+    description: "Fórmula natural com frango e linhaça, ideal para cães mini e pequenos adultos.",
+    image: "https://static.petz.com.br/produtos/12345/naturallife-mini.jpeg"
+  },
+  {
+    id: "6",
+    name: "Quatree Gourmet Premium Plus Gato Adulto",
+    type: "granel" as const,
+    category: "gato" as const,
+    price: 12.90,
+    description: "Premium plus para gatos adultos, com proteínas nobres e sabores irresistíveis.",
+    image: "https://static.petz.com.br/produtos/23456/quatre-gato.jpeg"
+  },
+  {
+    id: "7",
+    name: "Quatree Gourmet Adulto Médio-Grande",
+    type: "granel" as const,
+    category: "cachorro" as const,
+    price: 10.90,
+    description: "Ração para cães adultos de porte médio a grande, proteína rica e energia balanceada.",
+    image: "https://static.petz.com.br/produtos/34567/quatre-medgrande.jpeg"
+  },
+  {
+    id: "8",
+    name: "Quatree Supreme Pequeno Porte Frango & Batata-doce",
+    type: "granel" as const,
+    category: "cachorro" as const,
+    price: 16.90,
+    description: "Supreme natural para raças pequenas, com frango e batata-doce para energia saudável.",
+    image: "https://static.petz.com.br/produtos/45678/quatre-supreme-peq.jpeg"
+  },
+  {
+    id: "9",
+    name: "Capitão Dog Adulto Sabor Carne",
+    type: "granel" as const,
+    category: "cachorro" as const,
+    price: 7.50,
+    description: "Ração sabor carne para cães adultos, fórmula simples e nutritiva.",
+    image: "https://static.petz.com.br/produtos/56789/capitaodog-carne.jpeg"
+  },
+  {
+    id: "10",
+    name: "Special Dog Premium Plus Adultos Carne",
+    type: "granel" as const,
+    category: "cachorro" as const,
+    price: 12.90,
+    description: "Premium plus para adultos, sabor carne, maior digestibilidade e palatabilidade.",
+    image: "https://static.petz.com.br/produtos/67890/specialdog-adulto.jpeg"
+  },
+  {
+    id: "11",
+    name: "Magnus Todo Dia Adulto Carne",
+    type: "granel" as const,
+    category: "cachorro" as const,
+    price: 7.90,
+    description: "Ração completa para adultos, com vitamins e ômegas para manutenção diária.",
+    image: "https://static.petz.com.br/produtos/78901/magnustododia-carne.jpeg"
+  },
+  {
+    id: "12",
+    name: "Milho Granel",
+    type: "granel" as const,
+    category: "outros" as const,
+    price: 2.90,
+    description: "Milho a granel, ótimo para aves e pequenos pets.",
+    image: "https://static.petz.com.br/produtos/89012/milho.jpeg"
+  },
+  {
+    id: "13",
+    name: "Quatree Gourmet Pequeno Adulto",
+    type: "granel" as const,
+    category: "cachorro" as const,
+    price: 10.90,
+    description: "Gourmet premium para cães pequenos adultos, proteína de qualidade.",
+    image: "https://static.petz.com.br/produtos/90123/quatre-pequeno.jpeg"
+  },
+  {
+    id: "14",
+    name: "Quatree Supreme Senior 7+",
+    type: "granel" as const,
+    category: "cachorro" as const,
+    price: 16.90,
+    description: "Supreme para cães 7+, ingredientes naturais e suporte articular.",
+    image: "https://static.petz.com.br/produtos/01234/quatre-senior7p.jpeg"
+  },
+  {
+    id: "15",
+    name: "Magnum Cat Adultos Castrados Recheado Frango",
+    type: "granel" as const,
+    category: "gato" as const,
+    price: 17.90,
+    description: "Sachê recheado para gatos castrados, sabor frango premium.",
+    image: "https://static.petz.com.br/produtos/11223/magnumcat-frango.jpeg"
+  },
+  {
+    id: "16",
+    name: "Gatan Mix Gato",
+    type: "granel" as const,
+    category: "gato" as const,
+    price: 8.50,
+    description: "Mix nutritivo para gatos, com cereais, vitaminas e fibras.",
+    image: "https://static.petz.com.br/produtos/22334/gatanmix.jpeg"
+  },
+  {
+    id: "17",
+    name: "Quatree Life Premium Natural Pequeno Frango & Arroz",
+    type: "granel" as const,
+    category: "cachorro" as const,
+    price: 14.90,
+    description: "Fórmula natural premium, frango & arroz, suporte para cães pequenos adultos.",
+    image: "https://static.petz.com.br/produtos/33445/quatrelife-pequeno.jpeg"
+  },
+  {
+    id: "18",
+    name: "Magnus Todo Dia Pequeno Porte",
+    type: "granel" as const,
+    category: "cachorro" as const,
+    price: 7.90,
+    description: "Ração completa adaptada para cães pequenos, vitaminas e ômegas.",
+    image: "https://static.petz.com.br/produtos/44556/magnuspequeno.jpeg"
+  },
+  {
+    id: "19",
+    name: "Special Dog Ultralife Senior +7 Frango",
+    type: "granel" as const,
+    category: "cachorro" as const,
+    price: 18.90,
+    description: "Ultralife senior +7 com frango, suporte articular e vitalidade.",
+    image: "https://static.petz.com.br/produtos/55667/specialdog-senior7.jpeg"
+  },
+  {
+    id: "20",
+    name: "PremierPet Golden Formula Pequeno Frango & Arroz",
+    type: "granel" as const,
+    category: "cachorro" as const,
+    price: 14.90,
+    description: "Golden formula premium para pequenos adultos, frango e arroz balanceado.",
+    image: "https://static.petz.com.br/produtos/66778/premierpet-pequeno.jpeg"
+  }
 ];
+
 
 const ProductsSection = () => {
   const [filter, setFilter] = useState<"todos" | "granel" | "pacote" | "cachorro" | "gato" | "aves" | "saches" | "potes" | "roupas" | "peixes" | "outros">("todos");
