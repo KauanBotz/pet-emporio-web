@@ -200,7 +200,7 @@ const ProductsSection = () => {
           </div>
 
           {/* Filters Toggle */}
-          <div className="text-center mb-6">
+          <div className="flex justify-end mb-6">
             <Button
               variant="outline"
               onClick={() => setShowFilters(!showFilters)}
