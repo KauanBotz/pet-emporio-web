@@ -16,13 +16,17 @@ interface Product {
   image?: string;
 }
 
-interface PickupFormProps {
+interface CartItem {
   product: Product;
   quantity: number;
+}
+
+interface PickupFormProps {
+  cartItems: CartItem[];
   onClose: () => void;
 }
 
-const PickupForm = ({ product, quantity, onClose }: PickupFormProps) => {
+const PickupForm = ({ cartItems, onClose }: PickupFormProps) => {
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -41,14 +45,30 @@ const PickupForm = ({ product, quantity, onClose }: PickupFormProps) => {
 
     // Generate WhatsApp confirmation message
     const phone = "5531983319637";
-    const totalPrice = product.price ? (product.price * quantity).toLocaleString('pt-BR', { minimumFractionDigits: 2 }) : null;
-    const priceText = product.type === "granel" && totalPrice ? ` - Total: R$ ${totalPrice}` : "";
-    const message = `Olá! Sou ${formData.name} e confirmo a retirada do ${product.name} - ${quantity}${product.type === "granel" ? "kg" : " unidade(s)"}${priceText}, para o dia ${new Date(formData.date).toLocaleDateString('pt-BR')} às ${formData.time}.`;
+    
+    let message = `Olá! Sou ${formData.name} e confirmo a retirada dos seguintes produtos para o dia ${new Date(formData.date).toLocaleDateString('pt-BR')} às ${formData.time}:\n\n`;
+    
+    let totalPrice = 0;
+    cartItems.forEach((item, index) => {
+      const itemTotal = item.product.price ? item.product.price * item.quantity : 0;
+      totalPrice += itemTotal;
+      const unit = item.product.type === "granel" ? "kg" : "un";
+      
+      message += `${index + 1}. ${item.product.name}\n`;
+      message += `   ${item.quantity}${unit}`;
+      if (item.product.price) {
+        message += ` - R$ ${itemTotal.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}`;
+      }
+      message += `\n\n`;
+    });
+
+    message += `Total: R$ ${totalPrice.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}`;
+    
     const whatsappUrl = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
 
     toast({
       title: "Pedido confirmado! 🎉",
-      description: `Seu pedido de ${product.name} foi anotado. Te esperamos no horário combinado!`,
+      description: `Seus ${cartItems.length} produto(s) foram agendados para retirada!`,
     });
 
     // Open WhatsApp confirmation
@@ -80,17 +100,34 @@ const PickupForm = ({ product, quantity, onClose }: PickupFormProps) => {
         </CardHeader>
 
         <CardContent>
-          {/* Product Summary */}
-          <div className="bg-muted p-4 rounded-lg mb-6">
-            <h3 className="font-medium text-foreground mb-2">Produto selecionado:</h3>
-            <p className="text-sm text-muted-foreground mb-2">
-              <strong>{product.name}</strong> - {quantity}{product.type === "granel" ? "kg" : " unidade(s)"}
-            </p>
-            {product.price && (
-              <div className="text-lg font-semibold text-primary">
-                Total: R$ {(product.price * quantity).toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
+          {/* Cart Summary */}
+          <div className="bg-muted p-4 rounded-lg mb-6 max-h-40 overflow-y-auto">
+            <h3 className="font-medium text-foreground mb-3">Produtos para retirada:</h3>
+            {cartItems.map((item, index) => (
+              <div key={item.product.id} className="mb-2 text-sm">
+                <div className="flex justify-between items-start">
+                  <span className="font-medium">{item.product.name}</span>
+                  <span className="text-muted-foreground">
+                    {item.quantity}{item.product.type === "granel" ? "kg" : "un"}
+                  </span>
+                </div>
+                {item.product.price && (
+                  <div className="text-xs text-muted-foreground">
+                    R$ {(item.product.price * item.quantity).toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
+                  </div>
+                )}
               </div>
-            )}
+            ))}
+            <div className="border-t pt-2 mt-3">
+              <div className="flex justify-between items-center font-semibold">
+                <span>Total:</span>
+                <span className="text-primary">
+                  R$ {cartItems.reduce((total, item) => {
+                    return total + (item.product.price ? item.product.price * item.quantity : 0);
+                  }, 0).toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
+                </span>
+              </div>
+            </div>
           </div>
 
           {/* Form */}

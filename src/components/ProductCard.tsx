@@ -4,8 +4,9 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
-import { MessageCircle, Store, Package, Minus, Plus } from "lucide-react";
-import PickupForm from "./PickupForm";
+import { MessageCircle, Store, Package, Minus, Plus, ShoppingCart } from "lucide-react";
+import { useCart } from "@/contexts/CartContext";
+import { useToast } from "@/hooks/use-toast";
 
 interface Product {
   id: string;
@@ -23,7 +24,8 @@ interface ProductCardProps {
 
 const ProductCard = ({ product }: ProductCardProps) => {
   const [quantity, setQuantity] = useState(1);
-  const [showPickupForm, setShowPickupForm] = useState(false);
+  const { addToCart } = useCart();
+  const { toast } = useToast();
 
   const generateWhatsAppLink = () => {
     const phone = "5531983319637";
@@ -33,8 +35,13 @@ const ProductCard = ({ product }: ProductCardProps) => {
     return `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
   };
 
-  const handlePickupClick = () => {
-    setShowPickupForm(true);
+  const handleAddToCart = () => {
+    addToCart(product, quantity);
+    toast({
+      title: "Produto adicionado! 🛒",
+      description: `${product.name} (${quantity}${product.type === "granel" ? "kg" : " un"}) foi adicionado ao carrinho.`,
+    });
+    setQuantity(1);
   };
 
   const increaseQuantity = () => {
@@ -149,10 +156,10 @@ const ProductCard = ({ product }: ProductCardProps) => {
           <div className="space-y-2">
             <Button 
               className="w-full pickup-button"
-              onClick={handlePickupClick}
+              onClick={handleAddToCart}
             >
-              <Store className="w-4 h-4 mr-2" />
-              Retirar na loja
+              <ShoppingCart className="w-4 h-4 mr-2" />
+              Adicionar ao carrinho
             </Button>
             
             <Button 
@@ -161,20 +168,12 @@ const ProductCard = ({ product }: ProductCardProps) => {
               onClick={() => window.open(generateWhatsAppLink(), '_blank')}
             >
               <MessageCircle className="w-4 h-4 mr-2" />
-              Encomendar no WhatsApp
+              Encomendar direto no WhatsApp
             </Button>
           </div>
         </CardContent>
       </Card>
 
-      {/* Pickup Form Modal */}
-      {showPickupForm && (
-        <PickupForm
-          product={product}
-          quantity={quantity}
-          onClose={() => setShowPickupForm(false)}
-        />
-      )}
     </>
   );
 };

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Phone, MapPin, Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
+import CartButton from "./CartButton";
 
 const StickyHeader = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -84,6 +85,7 @@ const StickyHeader = () => {
 
           {/* Desktop Contact Info */}
           <div className="hidden lg:flex items-center space-x-4">
+            <CartButton />
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
               <Phone className="w-4 h-4" />
               <span>(31) 98331-9637</span>
@@ -97,19 +99,25 @@ const StickyHeader = () => {
             </Button>
           </div>
 
-          {/* Mobile Menu Button */}
-          <Button
-            variant="ghost"
-            size="sm"
-            className="md:hidden"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            {isMobileMenuOpen ? (
-              <X className="w-6 h-6" />
-            ) : (
-              <Menu className="w-6 h-6" />
-            )}
-          </Button>
+          {/* Mobile Actions */}
+          <div className="flex items-center gap-2">
+            <div className="lg:hidden">
+              <CartButton />
+            </div>
+            {/* Mobile Menu Button */}
+            <Button
+              variant="ghost"
+              size="sm"
+              className="md:hidden"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
+              {isMobileMenuOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
+            </Button>
+          </div>
         </div>
 
         {/* Mobile Menu */}
