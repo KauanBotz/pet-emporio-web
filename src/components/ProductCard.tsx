@@ -85,7 +85,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
           </div>
           
           {/* Product Image */}
-          <div className="w-full h-52 bg-muted rounded-lg overflow-hidden mb-4 flex-shrink-0 flex items-center justify-center">
+          <div className="w-full h-52 bg-white rounded-lg overflow-hidden mb-4 flex-shrink-0 flex items-center justify-center">
             {product.image ? (
               <img 
                 src={product.image} 
