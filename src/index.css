@@ -118,9 +118,15 @@ All colors MUST be HSL.
     background: linear-gradient(180deg, hsl(var(--background)), hsl(var(--card)));
   }
 
-  /* Product card hover effects */
+  /* Product card hover effects - only on desktop */
   .product-card-hover {
-    @apply transition-all duration-300 hover:scale-105 hover:shadow-lg;
+    @apply transition-all duration-300;
+  }
+  
+  @media (min-width: 1024px) {
+    .product-card-hover:hover {
+      @apply scale-105 shadow-lg;
+    }
   }
 
   /* WhatsApp button styling */
