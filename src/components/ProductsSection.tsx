@@ -482,11 +482,22 @@ const ProductsSection = () => {
         </div>
 
         {/* Products Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 fade-in">
-          {filteredProducts.map(product => (
-            <ProductCard key={product.id} product={product} />
-          ))}
-        </div>
+        {filteredProducts.length > 0 ? (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 fade-in">
+            {filteredProducts.map(product => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </div>
+        ) : (
+          <div className="text-center py-12 fade-in">
+            <p className="text-muted-foreground text-lg mb-4">
+              Não há produtos nesta categoria ainda.
+            </p>
+            <p className="text-muted-foreground">
+              Entre em contato conosco para verificar a disponibilidade de outros produtos.
+            </p>
+          </div>
+        )}
 
         {/* Add More Products Info */}
         <div className="text-center mt-12 slide-up">
