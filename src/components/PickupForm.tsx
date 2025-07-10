@@ -245,13 +245,21 @@ const PickupForm = ({ product, quantity, cartItems, onClose }: PickupFormProps) 
               className="w-full pickup-button"
               disabled={isSubmitting}
             >
-              {isSubmitting ? "Confirmando..." : "Confirmar Retirada"}
+              {isSubmitting ? "Preparando WhatsApp..." : "Enviar pelo WhatsApp"}
             </Button>
           </form>
 
-          <p className="text-xs text-muted-foreground mt-4 text-center">
-            Você será redicionado para o WhatsApp para confirmar seu pedido.
-          </p>
+          <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 mt-4">
+            <p className="text-sm font-medium text-blue-800 mb-1">
+              📱 Como finalizar seu agendamento:
+            </p>
+            <ol className="text-xs text-blue-700 space-y-1">
+              <li>1. Clique no botão acima</li>
+              <li>2. O WhatsApp será aberto com sua mensagem pronta</li>
+              <li>3. <strong>Clique em "Enviar"</strong> no WhatsApp para confirmar</li>
+              <li>4. Aguarde nossa confirmação!</li>
+            </ol>
+          </div>
         </CardContent>
       </Card>
     </div>
