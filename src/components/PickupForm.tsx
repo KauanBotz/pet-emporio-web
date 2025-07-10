@@ -107,10 +107,10 @@ const PickupForm = ({ product, quantity, cartItems, onClose }: PickupFormProps) 
   };
 
   return (
-    <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
-      <Card className="w-full max-w-md mx-auto animate-fade-in">
-        <CardHeader className="flex flex-row items-center justify-between">
-          <CardTitle className="text-xl text-foreground">
+    <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-2 md:p-4 z-50">
+      <Card className="w-full max-w-md mx-auto animate-fade-in max-h-[95vh] overflow-hidden flex flex-col">
+        <CardHeader className="flex flex-row items-center justify-between p-4 md:p-6 flex-shrink-0">
+          <CardTitle className="text-lg md:text-xl text-foreground">
             Retirada na Loja
           </CardTitle>
           <Button
@@ -123,9 +123,9 @@ const PickupForm = ({ product, quantity, cartItems, onClose }: PickupFormProps) 
           </Button>
         </CardHeader>
 
-        <CardContent>
+        <CardContent className="flex-1 overflow-y-auto p-4 md:p-6">
           {/* Cart Summary */}
-          <div className="bg-muted p-4 rounded-lg mb-6 max-h-60 overflow-y-auto">
+          <div className="bg-muted p-3 rounded-lg mb-4 max-h-40 md:max-h-60 overflow-y-auto">
             <h3 className="font-medium text-foreground mb-3">Produtos para retirada:</h3>
             {localItems.map((item, index) => (
               <div key={item.product.id} className="mb-4 pb-4 border-b border-border last:border-b-0">
