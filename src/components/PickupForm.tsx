@@ -247,7 +247,7 @@ const PickupForm = ({ product, quantity, cartItems, onClose }: PickupFormProps) 
           </form>
 
           <p className="text-xs text-muted-foreground mt-4 text-center">
-            Você receberá uma confirmação e lembrete por WhatsApp
+            Você será redicionado para o WhatsApp para confirmar seu pedido.
           </p>
         </CardContent>
       </Card>

@@ -140,10 +140,10 @@ const openInstagram = () => {
         {/* Bottom Bar */}
         <div className="border-t border-border pt-6 text-center">
           <p className="text-sm text-muted-foreground flex items-center justify-center gap-2">
-            Feito com <Heart className="w-4 h-4 text-red-500" /> para os pets de Belo Horizonte e Região Metropolitana.
+            Atendemos Belo Horizonte e Região Metropolitana.
           </p>
           <p className="text-xs text-muted-foreground mt-2">
-            © 2025 Empório das Rações - Todos os direitos reservados
+            © 2025 Empório das Rações - Todos os direitos reservados <br></br> CNPJ: 60.659.085/0001-46
           </p>
         </div>
       </div>
